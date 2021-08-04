@@ -1,20 +1,8 @@
 /* Other rules */
 
 /* FONTS */
-@font-face {
-  font-family: "Marvel";
-  src: url("./assets/fonts/Marvel-Regular.eot");
-  src: url("./assets/fonts/Marvel-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("./assets/fonts/Marvel-Regular.woff2") format("woff2"),
-    url("./assets/fonts/Marvel-Regular.woff") format("woff"),
-    url("./assets/fonts/Marvel-Regular.ttf") format("truetype"),
-    url("./assets/fonts/Marvel-Regular.svg#Marvel-Regular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
+/* header fonts */
 @font-face {
   font-family: "Avengers";
   src: url("./assets/fonts/Avengero-Disassembled.eot");
@@ -30,11 +18,54 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Marvel";
+  src: url("./assets/fonts/Marvel-Regular.eot");
+  src: url("./assets/fonts/Marvel-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Marvel-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Marvel-Regular.woff") format("woff"),
+    url("./assets/fonts/Marvel-Regular.ttf") format("truetype"),
+    url("./assets/fonts/Marvel-Regular.svg#Marvel-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* favorites fonts */
+@font-face {
+  font-family: "CaptainMarvel";
+  src: url("./assets/fonts/CaptainMarvel.eot");
+  src: url("./assets/fonts/CaptainMarvel.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/CaptainMarvel.woff2") format("woff2"),
+    url("./assets/fonts/CaptainMarvel.woff") format("woff"),
+    url("./assets/fonts/CaptainMarvel.ttf") format("truetype"),
+    url("./assets/fonts/CaptainMarvel.svg#CaptainMarvel") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Panthera";
+  src: url("./assets/fonts/Panthera.eot");
+  src: url("./assets/fonts/Panthera.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/Panthera.woff2") format("woff2"),
+    url("./assets/fonts/Panthera.woff") format("woff"),
+    url("./assets/fonts/Panthera.ttf") format("truetype"),
+    url("./assets/fonts/Panthera.svg#Panthera") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ________________ */
 /* APP */
 
 body {
   font-family: "Arial";
+  background-color: black;
 }
 
 /* HEADER */
@@ -82,4 +113,91 @@ body {
 .header nav a:hover {
   background-color: red;
   color: black;
+}
+
+/* CHARACTERS */
+
+.characters {
+  margin: 30px 20px;
+}
+
+.input {
+  text-align: center;
+  padding: 30px;
+}
+
+.input input {
+  width: 300px;
+  padding: 12px 20px;
+  outline: none;
+  font-size: 16px;
+  font-family: "CaptainMarvel";
+}
+
+.characters .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.character {
+  width: 17%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 9px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.character:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 5px 0 white;
+  /* border: 1px solid white; */
+}
+
+.character:hover img {
+  opacity: 0.2;
+  border-radius: 9px 9px 0 0;
+}
+
+.character a {
+  text-decoration: none;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.character p {
+  font-family: "Panthera";
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.character img {
+  width: 100%;
+  height: 205px;
+  border-radius: 9px;
+  transition: all 0.3s ease;
+}
+
+.character .description {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "CaptainMarvel";
+  text-align: justify;
+  padding: 15px;
+  width: 100%;
+  max-height: 190px;
+  overflow: scroll;
+}
+
+.character:hover .character .description {
+  opacity: 1;
+  color: red;
 }
