@@ -31,15 +31,40 @@ export default function CharacterComics() {
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
-    <div>
-      <h1>{characterInfos.name}</h1>
-      {characterInfos.comics.length > 0 ? (
-        characterInfos.comics.map((comic) => {
-          return <p key={comic._id}>{comic.title}</p>;
-        })
-      ) : (
-        <p>Pas de comics</p>
-      )}
+    <div className="character-comics">
+      <div className="character-infos">
+        <img
+          src={`${characterInfos.thumbnail.path}.${characterInfos.thumbnail.extension}`}
+          alt={characterInfos.name}
+        />
+        <div>
+          <h1>{characterInfos.name}</h1>
+          <p>{characterInfos.description}</p>
+        </div>
+      </div>
+
+      <div className="comics-list">
+        {characterInfos.comics.length > 0 ? (
+          characterInfos.comics.map((comic) => {
+            return (
+              <div key={comic._id} className="comics">
+                <h2>{comic.title}</h2>
+                <div>
+                  <img
+                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                    alt={comic.title}
+                  />
+                  {comic.description && <p>{comic.description}</p>}
+                </div>
+              </div>
+            );
+          })
+        ) : (
+          <p style={{ textAlign: "center" }}>
+            Aucun comics pour {characterInfos.name}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

@@ -11,9 +11,7 @@ export default function Characters() {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get(
-          "https://reacteur-marvel-by-tommy.herokuapp.com/characters"
-        );
+        const response = await axios.get("http://localhost:4000/characters");
         setCharacters(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -25,6 +23,7 @@ export default function Characters() {
   }, []);
 
   const handleCharacter = (e) => {
+    console.log(e.target.value);
     setCharacterInput(e.target.value);
   };
 
@@ -41,8 +40,8 @@ export default function Characters() {
       <div className="grid">
         {characters.map((character) => {
           return (
-            <div className="character">
-              <Link key={character._id} to={`/comics/${character._id}`}>
+            <div key={character._id} className="character">
+              <Link to={`/comics/${character._id}`}>
                 <img
                   src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
                   alt={character.name}
