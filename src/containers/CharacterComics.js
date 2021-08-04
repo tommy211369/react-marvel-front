@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import Spinner from "../components/Spinner";
 import { useParams } from "react-router-dom";
 
 export default function CharacterComics() {
@@ -29,7 +29,7 @@ export default function CharacterComics() {
   }, [id]);
 
   return isLoading ? (
-    <p>Loading ...</p>
+    <Spinner />
   ) : (
     <div className="character-comics">
       <div className="character-infos">

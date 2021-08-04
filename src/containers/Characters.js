@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Grid from "../components/Grid";
 import Input from "../components/Input";
+import Spinner from "../components/Spinner";
 import axios from "axios";
 
 export default function Characters() {
@@ -31,7 +32,7 @@ export default function Characters() {
   };
 
   return isLoading ? (
-    <p>Loading ...</p>
+    <Spinner />
   ) : (
     <div className="container">
       <Input

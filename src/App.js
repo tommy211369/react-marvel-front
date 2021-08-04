@@ -5,6 +5,9 @@ import Comics from "./containers/Comics";
 import CharacterComics from "./containers/CharacterComics";
 import Favorites from "./containers/Favorites";
 import Header from "./components/Header";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+library.add(faHeart);
 
 function App() {
   return (
