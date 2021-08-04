@@ -1,10 +1,31 @@
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Characters from "./containers/Characters";
+import Comics from "./containers/Comics";
+import CharacterComics from "./containers/CharacterComics";
+import Favorites from "./containers/Favorites";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
-      Hello from <a href="https://www.lereacteur.io">Le Reacteur !</a>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/comics">
+          <Comics />
+        </Route>
+        <Route path="/comics/:id">
+          <CharacterComics />
+        </Route>
+        <Route path="/favorites">
+          <Favorites />
+        </Route>
+
+        <Route path="/">
+          <Characters />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
