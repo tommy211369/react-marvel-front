@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Grid from "../components/Grid";
 import Input from "../components/Input";
 import axios from "axios";
 
@@ -11,7 +11,10 @@ export default function Characters() {
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/characters");
+        const response = await axios.get(
+          `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}`
+        );
+        console.log(response.data);
         setCharacters(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -20,7 +23,7 @@ export default function Characters() {
     };
 
     fetchCharacters();
-  }, []);
+  }, [characterInput]);
 
   const handleCharacter = (e) => {
     console.log(e.target.value);
@@ -30,33 +33,14 @@ export default function Characters() {
   return isLoading ? (
     <p>Loading ...</p>
   ) : (
-    <div className="characters">
+    <div className="container">
       <Input
         type="text"
         placeholder="Rechercher un personnage"
         handle={handleCharacter}
       />
 
-      <div className="grid">
-        {characters.map((character) => {
-          return (
-            <div key={character._id} className="character">
-              <Link to={`/comics/${character._id}`}>
-                <img
-                  src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
-                  alt={character.name}
-                />
-
-                <p>{character.name}</p>
-
-                {character.description && (
-                  <p className="description">{character.description}</p>
-                )}
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+      <Grid items={characters} characters={characters} />
     </div>
   );
 }
