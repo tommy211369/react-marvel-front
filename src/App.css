@@ -142,8 +142,8 @@ body {
 
 .header nav {
   position: relative;
-  border-top: 1px solid red;
-  border-bottom: 1px solid red;
+  border-top: 1px solid #fb231f;
+  border-bottom: 1px solid #fb231f;
 }
 
 .header ul {
@@ -166,7 +166,7 @@ body {
 }
 
 .header nav a:hover {
-  background-color: red;
+  background-color: #fb231f;
   color: black;
 }
 
@@ -296,7 +296,7 @@ body {
 
 .heart:hover {
   cursor: pointer;
-  background-color: red;
+  background-color: #fb231f;
 }
 
 /* CHARACTER COMICS*/
@@ -341,7 +341,7 @@ body {
 }
 
 .character-comics .comics {
-  box-shadow: 0 0 5px 0 red;
+  box-shadow: 0 0 5px 0 #fb231f;
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
@@ -381,4 +381,67 @@ body {
 /* FAVORITES */
 .favorites {
   color: white;
+}
+
+/* LOGIN */
+
+.login {
+  color: white;
+  font-family: "Thor";
+}
+
+.login .wrapper {
+  width: 30%;
+  margin: 50px auto;
+  box-sizing: border-box;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-header a:first-child {
+  animation: translateLeft 1.2s ease-out;
+}
+
+.form-header a:last-child {
+  animation: translateRight 1.2s ease-out;
+}
+
+@keyframes translateLeft {
+  from {
+    transform: translateX(-200%);
+  }
+}
+
+@keyframes translateRight {
+  from {
+    transform: translateX(200%);
+  }
+}
+
+.form-header a {
+  width: 45%;
+  text-align: center;
+  border: 2px solid #fb231f;
+  padding: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.login .form-header a:first-child {
+  background-color: #fb231f;
+  color: black;
+}
+
+.login form {
+  border: 2px solid #fb231f;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  font-family: "arial";
 }

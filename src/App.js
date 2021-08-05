@@ -1,4 +1,6 @@
 import "./App.css";
+import { useState } from "react";
+import Cookies from "js-cookie";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Characters from "./containers/Characters";
 import Comics from "./containers/Comics";
@@ -12,6 +14,21 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 library.add(faHeart);
 
 function App() {
+  const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
+  const [userName, setUserName] = useState(Cookies.get("userName") || null);
+
+  // store token as cookie
+  const setUser = (token) => {
+    setUserToken(token);
+    Cookies.set("userToken", token);
+  };
+
+  // store userName as cookie
+  const setDataUserName = (user) => {
+    setUserName(user);
+    Cookies.set("userName", user);
+  };
+
   return (
     <Router>
       <Header />
@@ -26,10 +43,10 @@ function App() {
           <Favorites />
         </Route>
         <Route path="/login">
-          <LogIn />
+          <LogIn setUser={setUser} setDataUserName={setDataUserName} />
         </Route>
         <Route path="/signup">
-          <SignUp />
+          <SignUp setUser={setUser} setDataUserName={setDataUserName} />
         </Route>
 
         <Route path="/">
