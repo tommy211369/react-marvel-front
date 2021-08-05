@@ -22,7 +22,7 @@ export default function LogIn({ setUser, setDataUserName }) {
       );
 
       console.log(response.data);
-      setDataUserName(response.data.resNewUser.username);
+      setDataUserName(response.data.resUser.username);
       setUser(response.data.resUser.token);
       history.push("/");
     } catch (e) {

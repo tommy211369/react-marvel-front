@@ -31,7 +31,11 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header
+        userName={userName}
+        setUserToken={setUserToken}
+        setUserName={setUserName}
+      />
       <Switch>
         <Route exact path="/comics">
           <Comics />
