@@ -147,7 +147,7 @@ body {
 }
 
 .header ul {
-  width: 40%;
+  width: 60%;
   box-sizing: border-box;
   list-style: none;
   display: flex;
@@ -158,6 +158,8 @@ body {
 
 .header nav a {
   padding: 20px;
+  flex: 1;
+  box-sizing: border-box;
   text-transform: uppercase;
   display: block;
   text-decoration: none;
@@ -479,7 +481,7 @@ body {
 /* FAVORITES */
 .favorites h1 {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 50px;
   font-size: 25px;
 }
 .favorites .container {
@@ -507,4 +509,66 @@ body {
 
 .favorites button:hover {
   cursor: pointer;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1075px) {
+  .header ul {
+    width: 100%;
+  }
+
+  .header nav img {
+    top: 80px;
+    /* margin-top: -17px; */
+    height: 35px;
+  }
+
+  .header .username {
+    /* margin-top: -5px; */
+    top: 70px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .item {
+    width: 30%;
+  }
+}
+
+@media (max-width: 750px) {
+  .item {
+    width: 45%;
+  }
+
+  .header ul {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 750px) {
+  .header ul {
+    justify-content: center;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .item {
+    width: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .header img {
+    width: 100%;
+  }
+
+  .input input {
+    width: 90%;
+    padding: 12px 20px;
+    outline: none;
+    font-size: 12px;
+    font-family: "CaptainMarvel";
+  }
 }
