@@ -4,6 +4,8 @@ import Characters from "./containers/Characters";
 import Comics from "./containers/Comics";
 import CharacterComics from "./containers/CharacterComics";
 import Favorites from "./containers/Favorites";
+import LogIn from "./containers/LogIn";
+import SignUp from "./containers/SignUp";
 import Header from "./components/Header";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -22,6 +24,12 @@ function App() {
         </Route>
         <Route path="/favorites">
           <Favorites />
+        </Route>
+        <Route path="/login">
+          <LogIn />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
 
         <Route path="/">

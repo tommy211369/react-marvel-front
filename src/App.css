@@ -141,6 +141,7 @@ body {
 }
 
 .header nav {
+  position: relative;
   border-top: 1px solid red;
   border-bottom: 1px solid red;
 }
@@ -167,6 +168,19 @@ body {
 .header nav a:hover {
   background-color: red;
   color: black;
+}
+
+.header nav img {
+  position: absolute;
+  width: 70px;
+  top: 50%;
+  margin-top: -17px;
+  height: 35px;
+  object-fit: cover;
+}
+
+.header nav img:hover {
+  cursor: pointer;
 }
 
 /* CHARACTERS AND COMICS */
@@ -244,6 +258,7 @@ body {
 .item img {
   width: 100%;
   height: 205px;
+  object-fit: cover;
   border-radius: 9px;
   transition: all 0.3s ease;
 }
@@ -363,4 +378,7 @@ body {
   display: none;
 }
 
-/* */
+/* FAVORITES */
+.favorites {
+  color: white;
+}

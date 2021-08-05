@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Grid from "../components/Grid";
-import Input from "../components/Input";
+import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
 
 import axios from "axios";
@@ -36,7 +36,7 @@ export default function Comics() {
     <Spinner />
   ) : (
     <div className="container">
-      <Input
+      <SearchInput
         type="text"
         placeholder="Rechercher un comics"
         handle={handleComics}
