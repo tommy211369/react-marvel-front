@@ -192,7 +192,7 @@ body {
 .container .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .item {
@@ -233,6 +233,10 @@ body {
   font-size: 14px;
 }
 
+.item > p {
+  padding-top: 40px;
+}
+
 .item p::-webkit-scrollbar {
   display: none;
 }
@@ -269,12 +273,15 @@ body {
   z-index: 1000;
   position: absolute;
   color: white;
-  top: 5px;
+  bottom: 45px;
   left: 5px;
+  padding: 3px;
+  border-radius: 50px;
 }
 
 .heart:hover {
   cursor: pointer;
+  background-color: red;
 }
 
 /* CHARACTER COMICS*/

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Grid({ items, characters }) {
-  const [addToFavorites, setAddToFavorites] = useState(false);
   // en appuyant sur le coeur, ajout à favorites
   // condition : si c'est un personnage ou un comics
   return (
@@ -11,13 +10,7 @@ export default function Grid({ items, characters }) {
       {items.map((item) => {
         return (
           <div key={item._id} className="item">
-            <FontAwesomeIcon
-              icon="heart"
-              className="heart"
-              onClick={() => {
-                setAddToFavorites(!addToFavorites);
-              }}
-            />
+            <FontAwesomeIcon icon="heart" className="heart" />
             <Link to={items === characters && `/comics/${item._id}`}>
               <img
                 src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
