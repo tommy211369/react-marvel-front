@@ -19,17 +19,21 @@ export default function SignUp({ setUser, setDataUserName }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // `http://localhost:4000/signup`
-      // `https://reacteur-marvel-by-tommy.herokuapp.com/signup`
-      const response = await axios.post(
-        `http://localhost:4000/signup`,
-        userData
-      );
+      if (password === confirm) {
+        // `http://localhost:4000/signup`
+        // `https://reacteur-marvel-by-tommy.herokuapp.com/signup`
+        const response = await axios.post(
+          `http://localhost:4000/signup`,
+          userData
+        );
 
-      setDataUserName(response.data.resNewUser.username);
-      setUser(response.data.resNewUser.token);
-      console.log(response.data);
-      history.push("/");
+        setDataUserName(response.data.resNewUser.username);
+        setUser(response.data.resNewUser.token);
+        console.log(response.data);
+        history.push("/");
+      } else {
+        alert("Le mot de passe et la confirmation sont différents");
+      }
     } catch (e) {
       console.log(e.message);
     }
@@ -40,7 +44,7 @@ export default function SignUp({ setUser, setDataUserName }) {
       <div className="wrapper">
         <div className="form-header">
           <Link to="/login">Se connecter</Link>
-          <Link>S'enregistrer</Link>
+          <Link className="signup-page">S'enregistrer</Link>
         </div>
 
         <form onSubmit={handleSubmit}>

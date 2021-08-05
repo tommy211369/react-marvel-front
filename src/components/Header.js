@@ -12,6 +12,7 @@ export default function Header({
   setUserToken,
   setUserName,
   userToken,
+  setUserFavorites,
 }) {
   const history = useHistory();
   return (
@@ -37,8 +38,10 @@ export default function Header({
             onClick={() => {
               setUserName(null);
               setUserToken(null);
+              setUserFavorites(null);
               Cookies.remove("userToken");
               Cookies.remove("userName");
+              Cookies.remove("userFavorites");
             }}
           />
         )}

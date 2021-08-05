@@ -462,7 +462,8 @@ body {
   transition: all 0.3s ease;
 }
 
-.login .form-header a:first-child {
+.loginpage,
+.signup-page {
   background-color: #fb231f;
   color: black;
 }
@@ -476,19 +477,34 @@ body {
 }
 
 /* FAVORITES */
+.favorites h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 25px;
+}
 .favorites .container {
   display: flex;
+  width: 80%;
+  margin: 30px auto;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+  box-sizing: border-box;
 }
 .favorites .container div {
-  min-width: 35%;
+  min-width: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .favorites img {
   width: 170px;
   height: 190px;
   object-fit: cover;
+  box-sizing: border-box;
+}
+
+.favorites button:hover {
+  cursor: pointer;
 }

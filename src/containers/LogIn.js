@@ -17,8 +17,9 @@ export default function LogIn({ setUser, setDataUserName }) {
     e.preventDefault();
     try {
       // `http://localhost:4000/login`
+      // https://reacteur-marvel-by-tommy.herokuapp.com/login
       const response = await axios.post(
-        `https://reacteur-marvel-by-tommy.herokuapp.com/login`,
+        `http://localhost:4000/login`,
         userData
       );
 
@@ -35,7 +36,7 @@ export default function LogIn({ setUser, setDataUserName }) {
     <div className="login">
       <div className="wrapper">
         <div className="form-header">
-          <Link>Se connecter</Link>
+          <Link className="loginpage">Se connecter</Link>
           <Link to="/signup">S'enregistrer</Link>
         </div>
 

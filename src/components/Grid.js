@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+
 import Fade from "react-reveal/Fade";
 import axios from "axios";
+import Spinner from "../components/Spinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Grid({
@@ -11,13 +13,19 @@ export default function Grid({
   type,
   userToken,
   userFavorites,
+  appLoading,
 }) {
-  return (
+  // item, type
+  return appLoading ? (
+    <Spinner />
+  ) : (
     <div className="grid">
       <Fade top>
         {items.map((item) => {
-          const exist = userFavorites.find((elem) => elem.id === item._id);
-          console.log(exist);
+          let exist = "";
+          if (userToken) {
+            exist = userFavorites.find((elem) => elem.id === item._id);
+          }
           return (
             <div key={item._id} className="item">
               <FontAwesomeIcon

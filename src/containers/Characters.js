@@ -10,6 +10,7 @@ export default function Characters({
   userFavorites,
   characters,
   setCharacters,
+  appLoading,
 }) {
   const [characterInput, setCharacterInput] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -54,6 +55,7 @@ export default function Characters({
         type="Character"
         userToken={userToken}
         userFavorites={userFavorites}
+        appLoading={appLoading}
       />
     </div>
   );
