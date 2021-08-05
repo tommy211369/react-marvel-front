@@ -40,10 +40,10 @@ export default function Grid({
                       itemTitle: item.title ? item.title : item.name,
                       itemPicture: `${item.thumbnail.path}.${item.thumbnail.extension}`,
                     };
-
+                    //http://localhost:4000/user/favorites
                     // `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`
                     const response = await axios.post(
-                      "http://localhost:4000/user/favorites",
+                      `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`,
                       itemDatas,
                       {
                         headers: {

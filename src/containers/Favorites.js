@@ -10,7 +10,9 @@ export default function Favorites({
   const handleRemoveItem = async (user, id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4000/favorites/delete?user=${user}&id=${id}`
+        // `http://localhost:4000/favorites/delete?user=${user}&id=${id}`
+        // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${user}&id=${id}`
+        `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${user}&id=${id}`
       );
 
       console.log(response.data);

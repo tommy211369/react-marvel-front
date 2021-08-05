@@ -40,7 +40,9 @@ function App() {
       try {
         if (userToken) {
           const response = await axios.get(
-            `http://localhost:4000/favorites?token=${userToken}`
+            // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
+            // `http://localhost:4000/favorites?token=${userToken}`
+            `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
           );
 
           console.log(response.data);
