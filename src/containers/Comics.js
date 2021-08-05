@@ -5,7 +5,7 @@ import Spinner from "../components/Spinner";
 
 import axios from "axios";
 
-export default function Comics() {
+export default function Comics({ userName, userToken, userFavorites }) {
   const [comicsList, setComicsList] = useState("");
   const [comicsInput, setComicsInput] = useState("");
   const [isLoading, setIsLoading] = useState(true);
@@ -13,6 +13,7 @@ export default function Comics() {
   useEffect(() => {
     const fetchComics = async () => {
       try {
+        // `http://localhost:4000/comics?title=${comicsInput}`
         const response = await axios.get(
           `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}`
         );
@@ -42,7 +43,13 @@ export default function Comics() {
         handle={handleComics}
       />
 
-      <Grid items={comicsList} />
+      <Grid
+        items={comicsList}
+        userName={userName}
+        type="Comics"
+        userToken={userToken}
+        userFavorites={userFavorites}
+      />
     </div>
   );
 }

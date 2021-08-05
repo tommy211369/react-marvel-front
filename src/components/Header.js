@@ -7,7 +7,12 @@ import Cookies from "js-cookie";
 //logo marvel
 // navigation Chracters, Comics, Favorites
 
-export default function Header({ userName, setUserToken, setUserName }) {
+export default function Header({
+  userName,
+  setUserToken,
+  setUserName,
+  userToken,
+}) {
   const history = useHistory();
   return (
     <div className="header">
@@ -41,7 +46,12 @@ export default function Header({ userName, setUserToken, setUserName }) {
         <ul>
           <Link to="/">Personnages</Link>
           <Link to="/comics">Comics</Link>
-          <Link to="/favorites">Favoris</Link>
+
+          {userToken ? (
+            <Link to="/favorites">Favoris</Link>
+          ) : (
+            <Link to="/login">Favoris</Link>
+          )}
         </ul>
 
         {userName && (

@@ -4,14 +4,20 @@ import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 
-export default function Characters() {
-  const [characters, setCharacters] = useState("");
+export default function Characters({
+  userName,
+  userToken,
+  userFavorites,
+  characters,
+  setCharacters,
+}) {
   const [characterInput, setCharacterInput] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
+        // `http://localhost:4000/characters?name=${characterInput}`
         const response = await axios.get(
           `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}`
         );
@@ -41,7 +47,14 @@ export default function Characters() {
         handle={handleCharacter}
       />
 
-      <Grid items={characters} characters={characters} />
+      <Grid
+        items={characters}
+        characters={characters}
+        userName={userName}
+        type="Character"
+        userToken={userToken}
+        userFavorites={userFavorites}
+      />
     </div>
   );
 }

@@ -308,9 +308,24 @@ body {
   border-radius: 50px;
 }
 
+.heart-red {
+  z-index: 1000;
+  position: absolute;
+  color: red;
+  bottom: 45px;
+  left: 5px;
+  padding: 3px;
+  border-radius: 50px;
+}
+
 .heart:hover {
   cursor: pointer;
-  background-color: #fb231f;
+  background-color: red;
+}
+
+.heart-red:hover {
+  cursor: pointer;
+  background-color: white;
 }
 
 /* CHARACTER COMICS*/
@@ -458,4 +473,22 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "arial";
+}
+
+/* FAVORITES */
+.favorites .container {
+  display: flex;
+  justify-content: space-evenly;
+}
+.favorites .container div {
+  min-width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorites img {
+  width: 170px;
+  height: 190px;
+  object-fit: cover;
 }

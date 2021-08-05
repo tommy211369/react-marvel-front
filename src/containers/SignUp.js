@@ -19,8 +19,10 @@ export default function SignUp({ setUser, setDataUserName }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // `http://localhost:4000/signup`
+      // `https://reacteur-marvel-by-tommy.herokuapp.com/signup`
       const response = await axios.post(
-        `https://reacteur-marvel-by-tommy.herokuapp.com/signup`,
+        `http://localhost:4000/signup`,
         userData
       );
 
