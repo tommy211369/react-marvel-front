@@ -20,19 +20,17 @@ export default function Characters({
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
-        // `http://localhost:4000/characters?name=${characterInput}`
+        // `http://localhost:4000/characters?name=${characterInput}&skip=${skip}`
         // `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         const response = await axios.get(
           `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         );
+
         console.log(response.data);
         setCharactersTotal(response.data.count);
 
-        if (response.data.characters.length === 0) {
-          setCharacters("");
-        } else if (response.data.characters.length > 0) {
-          setCharacters(response.data.characters);
-        }
+        setCharacters(response.data.characters);
+
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -43,7 +41,6 @@ export default function Characters({
   }, [characterInput, skip, setCharacters]);
 
   const handleCharacter = (e) => {
-    console.log(e.target.value);
     setCharacterInput(e.target.value);
   };
 
@@ -57,7 +54,7 @@ export default function Characters({
         handle={handleCharacter}
       />
 
-      {characters && (
+      {characters.length > 0 && (
         <Pagination
           skip={skip}
           setSkip={setSkip}
@@ -77,7 +74,7 @@ export default function Characters({
         setUserFavorites={setUserFavorites}
       />
 
-      {characters && (
+      {characters.length > 0 && (
         <Pagination
           skip={skip}
           setSkip={setSkip}

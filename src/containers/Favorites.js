@@ -53,6 +53,7 @@ export default function Favorites({
       console.log(error.message);
     }
   };
+
   return isLoading ? (
     <Spinner />
   ) : (

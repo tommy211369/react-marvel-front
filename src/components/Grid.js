@@ -49,15 +49,15 @@ export default function Grid({
 
   return isLoading ? (
     <Spinner />
-  ) : items ? (
+  ) : items.length > 0 ? (
     <div className="grid">
-      <Fade top>
-        {items.map((item) => {
-          let exist = "";
-          if (userFavorites !== null && userFavorites.length > 0) {
-            exist = userFavorites.find((elem) => elem.id === item._id);
-          }
-          return (
+      {items.map((item) => {
+        let exist = "";
+        if (userFavorites !== null && userFavorites.length > 0) {
+          exist = userFavorites.find((elem) => elem.id === item._id);
+        }
+        return (
+          <Fade top>
             <div key={item._id} className="item">
               <FontAwesomeIcon
                 icon="heart"
@@ -104,9 +104,9 @@ export default function Grid({
               </Link>
               {item.name ? <p>{item.name}</p> : <p>{item.title}</p>}
             </div>
-          );
-        })}
-      </Fade>
+          </Fade>
+        );
+      })}
     </div>
   ) : (
     <p style={{ color: "white", textAlign: "center" }}>Aucun résultat ...</p>
