@@ -103,6 +103,6 @@ export default function Grid({
       </Fade>
     </div>
   ) : (
-    <p style={{ color: "white" }}>Aucun résultat ...</p>
+    <p style={{ color: "white", textAlign: "center" }}>Aucun résultat ...</p>
   );
 }

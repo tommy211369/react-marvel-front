@@ -58,13 +58,15 @@ export default function Comics({
         handle={handleComics}
       />
 
-      <Pagination
-        skip={skip}
-        setSkip={setSkip}
-        page={page}
-        setPage={setPage}
-        comicsTotal={comicsTotal}
-      />
+      {comicsList && (
+        <Pagination
+          skip={skip}
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          comicsTotal={comicsTotal}
+        />
+      )}
 
       <Grid
         items={comicsList}
@@ -74,6 +76,16 @@ export default function Comics({
         userFavorites={userFavorites}
         setUserFavorites={setUserFavorites}
       />
+
+      {comicsList && (
+        <Pagination
+          skip={skip}
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          comicsTotal={comicsTotal}
+        />
+      )}
     </div>
   );
 }

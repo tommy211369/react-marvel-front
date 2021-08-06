@@ -57,13 +57,15 @@ export default function Characters({
         handle={handleCharacter}
       />
 
-      <Pagination
-        skip={skip}
-        setSkip={setSkip}
-        page={page}
-        setPage={setPage}
-        charactersTotal={charactersTotal}
-      />
+      {characters && (
+        <Pagination
+          skip={skip}
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          charactersTotal={charactersTotal}
+        />
+      )}
 
       <Grid
         items={characters}
@@ -74,6 +76,16 @@ export default function Characters({
         userFavorites={userFavorites}
         setUserFavorites={setUserFavorites}
       />
+
+      {characters && (
+        <Pagination
+          skip={skip}
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          charactersTotal={charactersTotal}
+        />
+      )}
     </div>
   );
 }
