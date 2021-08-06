@@ -61,30 +61,34 @@ export default function Favorites({
 
       <div className="container">
         {userToken ? (
-          userFavorites.map((item) => {
-            return (
-              <div key={item.id} className="favorite">
-                {item.type === "Character" ? (
-                  <h2>
-                    Nom : <span>{item.title}</span>
-                  </h2>
-                ) : (
-                  <h2>
-                    Titre : <span>{item.title}</span>
-                  </h2>
-                )}
-                <p>{item.type}</p>
-                <div>
-                  <img src={item.image} alt={item.title} />
-                  <button
-                    onClick={() => handleRemoveItem(item.userName, item.id)}
-                  >
-                    Retirer des favoris
-                  </button>
+          userFavorites.length > 0 ? (
+            userFavorites.map((item) => {
+              return (
+                <div key={item.id} className="favorite">
+                  {item.type === "Character" ? (
+                    <h2>
+                      Nom : <span>{item.title}</span>
+                    </h2>
+                  ) : (
+                    <h2>
+                      Titre : <span>{item.title}</span>
+                    </h2>
+                  )}
+                  <p>{item.type}</p>
+                  <div>
+                    <img src={item.image} alt={item.title} />
+                    <button
+                      onClick={() => handleRemoveItem(item.userName, item.id)}
+                    >
+                      Retirer des favoris
+                    </button>
+                  </div>
                 </div>
-              </div>
-            );
-          })
+              );
+            })
+          ) : (
+            <p>Aucun favoris</p>
+          )
         ) : (
           <Redirect to="/login" />
         )}
