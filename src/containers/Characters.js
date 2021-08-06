@@ -8,10 +8,9 @@ export default function Characters({
   userName,
   userToken,
   userFavorites,
-  characters,
-  setCharacters,
   setUserFavorites,
 }) {
+  const [characters, setCharacters] = useState("");
   const [characterInput, setCharacterInput] = useState("");
   const [charactersTotal, setCharactersTotal] = useState("");
   const [skip, setSkip] = useState(0);
@@ -22,19 +21,18 @@ export default function Characters({
     const fetchCharacters = async () => {
       try {
         // `http://localhost:4000/characters?name=${characterInput}`
-        // `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}`
+        // `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         const response = await axios.get(
-          `http://localhost:4000/characters?name=${characterInput}&skip=${skip}`
+          `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         );
         console.log(response.data);
         setCharactersTotal(response.data.count);
 
         if (response.data.characters.length === 0) {
           setCharacters("");
-        } else {
+        } else if (response.data.characters.length > 0) {
           setCharacters(response.data.characters);
         }
-
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);

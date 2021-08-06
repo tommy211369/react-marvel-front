@@ -11,6 +11,8 @@ export default function CharacterComics({}) {
   useEffect(() => {
     const fetchCharacterComics = async () => {
       try {
+        // `http://localhost:4000/comics/${id}`
+        // `https://reacteur-marvel-by-tommy.herokuapp.com/comics/${id}`
         const response = await axios.get(
           `https://reacteur-marvel-by-tommy.herokuapp.com/comics/${id}`
         );

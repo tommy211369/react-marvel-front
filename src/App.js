@@ -19,7 +19,6 @@ function App() {
   const [userFavorites, setUserFavorites] = useState(
     Cookies.get("userFavorites") || null
   );
-  const [characters, setCharacters] = useState("");
 
   // store token as cookie
   const setUser = (token) => {
@@ -32,8 +31,6 @@ function App() {
     setUserName(user);
     Cookies.set("userName", user);
   };
-
-  // faire une fonction add/remove item (pour Grid, CharacterComics, Favorites)
 
   return (
     <Router>
@@ -66,8 +63,6 @@ function App() {
           <Favorites
             userName={userName}
             userFavorites={userFavorites}
-            characters={characters}
-            setCharacters={setCharacters}
             setUserFavorites={setUserFavorites}
             userToken={userToken}
           />
@@ -84,8 +79,6 @@ function App() {
             userName={userName}
             userToken={userToken}
             userFavorites={userFavorites}
-            characters={characters}
-            setCharacters={setCharacters}
             setUserFavorites={setUserFavorites}
           />
         </Route>

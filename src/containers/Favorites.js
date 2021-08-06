@@ -19,7 +19,7 @@ export default function Favorites({
           const response = await axios.get(
             // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
             // `http://localhost:4000/favorites?token=${userToken}`
-            `http://localhost:4000/favorites?token=${userToken}`
+            `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
           );
 
           console.log(response.data);
@@ -44,7 +44,7 @@ export default function Favorites({
       const response = await axios.delete(
         // `http://localhost:4000/favorites/delete?user=${user}&id=${id}`
         // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${user}&id=${id}`
-        `http://localhost:4000/favorites/delete?user=${user}&id=${id}`
+        `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${user}&id=${id}`
       );
 
       console.log(response.data);
@@ -63,15 +63,15 @@ export default function Favorites({
         {userToken ? (
           userFavorites.map((item) => {
             return (
-              <div key={item.id}>
+              <div key={item.id} className="favorite">
                 {item.type === "Character" ? (
-                  <p>
+                  <h2>
                     Nom : <span>{item.title}</span>
-                  </p>
+                  </h2>
                 ) : (
-                  <p>
+                  <h2>
                     Titre : <span>{item.title}</span>
-                  </p>
+                  </h2>
                 )}
                 <p>{item.type}</p>
                 <div>

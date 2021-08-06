@@ -20,10 +20,10 @@ export default function SignUp({ setUser, setDataUserName }) {
     e.preventDefault();
     try {
       if (password === confirm) {
-        // `http://localhost:4000/signup`
-        // `https://reacteur-marvel-by-tommy.herokuapp.com/signup`
+        // "http://localhost:4000/signup"
+        // "https://reacteur-marvel-by-tommy.herokuapp.com/signup"
         const response = await axios.post(
-          `http://localhost:4000/signup`,
+          "https://reacteur-marvel-by-tommy.herokuapp.com/signup",
           userData
         );
 
