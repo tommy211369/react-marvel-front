@@ -54,6 +54,7 @@ export default function SignUp({ setUser, setDataUserName }) {
             onChange={(e) => {
               setUsername(e.target.value);
             }}
+            required
           />
           <input
             type="email"
@@ -61,6 +62,7 @@ export default function SignUp({ setUser, setDataUserName }) {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            required
           />
           <input
             type="password"
@@ -68,6 +70,7 @@ export default function SignUp({ setUser, setDataUserName }) {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
+            required
           />
           <input
             type="password"
@@ -75,6 +78,7 @@ export default function SignUp({ setUser, setDataUserName }) {
             onChange={(e) => {
               setConfirm(e.target.value);
             }}
+            required
           />
           <input type="submit" value="Valider" />
         </form>

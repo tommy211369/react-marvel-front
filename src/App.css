@@ -423,13 +423,15 @@ body {
 
 .login .wrapper {
   width: 30%;
-  margin: 50px auto;
+  margin: 80px auto;
   box-sizing: border-box;
 }
 
 .form-header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .form-header a:first-child {
@@ -453,7 +455,7 @@ body {
 }
 
 .form-header a {
-  width: 45%;
+  width: 50%;
   text-align: center;
   border: 2px solid #fb231f;
   padding: 20px;
@@ -462,6 +464,7 @@ body {
   color: white;
   font-size: 15px;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .loginpage,
@@ -471,11 +474,29 @@ body {
 }
 
 .login form {
-  border: 2px solid #fb231f;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   font-family: "arial";
+}
+
+form input {
+  border: none;
+  padding: 10px 20px;
+  outline: none;
+  font-size: 13px;
+  font-family: "CaptainMarvel";
+  margin-bottom: 10px;
+}
+
+form input[type="submit"] {
+  width: 30%;
+  margin: 0 auto;
+}
+
+form input[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #fb231f;
 }
 
 /* FAVORITES */
@@ -530,9 +551,23 @@ body {
   }
 }
 
+/* MEDIA QUERIES */
+
+@media (max-width: 1235px) {
+  .login .wrapper {
+    width: 40%;
+  }
+}
+
 @media (max-width: 1024px) {
   .item {
     width: 30%;
+  }
+}
+
+@media (max-width: 930px) {
+  .login .wrapper {
+    width: 50%;
   }
 }
 
@@ -544,12 +579,28 @@ body {
   .header ul {
     font-size: 12px;
   }
+
+  .login .wrapper {
+    width: 60%;
+  }
 }
 
 @media (max-width: 750px) {
   .header ul {
     justify-content: center;
     font-size: 10px;
+  }
+}
+
+@media (max-width: 625px) {
+  .login .wrapper {
+    width: 80%;
+    font-size: 12px;
+  }
+
+  .form-header a,
+  form input {
+    font-size: 12px;
   }
 }
 
@@ -570,5 +621,13 @@ body {
     outline: none;
     font-size: 12px;
     font-family: "CaptainMarvel";
+  }
+
+  .form-header {
+    flex-direction: column;
+  }
+
+  .form-header a {
+    width: 100%;
   }
 }

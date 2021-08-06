@@ -47,6 +47,7 @@ export default function LogIn({ setUser, setDataUserName }) {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            required
           />
           <input
             type="password"
@@ -54,6 +55,7 @@ export default function LogIn({ setUser, setDataUserName }) {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
+            required
           />
           <input type="submit" value="Valider" />
         </form>
