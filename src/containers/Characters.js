@@ -60,6 +60,7 @@ export default function Characters({
           setSkip={setSkip}
           page={page}
           setPage={setPage}
+          characters={characters}
           charactersTotal={charactersTotal}
         />
       )}
@@ -80,6 +81,7 @@ export default function Characters({
           setSkip={setSkip}
           page={page}
           setPage={setPage}
+          characters={characters}
           charactersTotal={charactersTotal}
         />
       )}

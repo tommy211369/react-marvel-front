@@ -62,6 +62,7 @@ export default function Comics({
           page={page}
           setPage={setPage}
           comicsTotal={comicsTotal}
+          comicsList={comicsList}
         />
       )}
 
@@ -81,6 +82,7 @@ export default function Comics({
           page={page}
           setPage={setPage}
           comicsTotal={comicsTotal}
+          comicsList={comicsList}
         />
       )}
     </div>

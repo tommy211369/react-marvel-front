@@ -1,6 +1,12 @@
 import React from "react";
 
-export default function Pagination({ setSkip, page, setPage }) {
+export default function Pagination({
+  setSkip,
+  page,
+  setPage,
+  characters,
+  comicsList,
+}) {
   return (
     <div className="pagination">
       {page > 1 && (
@@ -15,6 +21,7 @@ export default function Pagination({ setSkip, page, setPage }) {
       )}
       <p className="page">{page}</p>
 
+      {}
       <button
         onClick={() => {
           setPage((page += 1));
