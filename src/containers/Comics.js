@@ -2,23 +2,38 @@ import React, { useState, useEffect } from "react";
 import Grid from "../components/Grid";
 import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
-
+import Pagination from "../components/Pagination";
 import axios from "axios";
 
-export default function Comics({ userName, userToken, userFavorites }) {
+export default function Comics({
+  userName,
+  userToken,
+  userFavorites,
+  setUserFavorites,
+}) {
   const [comicsList, setComicsList] = useState("");
   const [comicsInput, setComicsInput] = useState("");
+  const [comicsTotal, setComicsTotal] = useState("");
+  const [skip, setSkip] = useState(0);
+  const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchComics = async () => {
       try {
+        // `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}`
         // `http://localhost:4000/comics?title=${comicsInput}`
         const response = await axios.get(
-          `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}`
+          `http://localhost:4000/comics?title=${comicsInput}&skip=${skip}`
         );
+        setComicsTotal(response.data.count);
 
-        setComicsList(response.data);
+        if (response.data.comics.length === 0) {
+          setComicsList("");
+        } else {
+          setComicsList(response.data.comics);
+        }
+
         setIsLoading(false);
         console.log(response.data);
       } catch (error) {
@@ -27,7 +42,7 @@ export default function Comics({ userName, userToken, userFavorites }) {
     };
 
     fetchComics();
-  }, [comicsInput]);
+  }, [comicsInput, skip]);
 
   const handleComics = (e) => {
     setComicsInput(e.target.value);
@@ -43,12 +58,21 @@ export default function Comics({ userName, userToken, userFavorites }) {
         handle={handleComics}
       />
 
+      <Pagination
+        skip={skip}
+        setSkip={setSkip}
+        page={page}
+        setPage={setPage}
+        comicsTotal={comicsTotal}
+      />
+
       <Grid
         items={comicsList}
         userName={userName}
         type="Comics"
         userToken={userToken}
         userFavorites={userFavorites}
+        setUserFavorites={setUserFavorites}
       />
     </div>
   );

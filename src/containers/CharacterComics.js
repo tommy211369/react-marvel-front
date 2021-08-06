@@ -3,15 +3,12 @@ import axios from "axios";
 import Spinner from "../components/Spinner";
 import { useParams } from "react-router-dom";
 
-export default function CharacterComics() {
+export default function CharacterComics({}) {
   const { id } = useParams();
-  const [characterId, setCharacterId] = useState("");
   const [characterInfos, setCharacterInfos] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setCharacterId(id);
-
     const fetchCharacterComics = async () => {
       try {
         const response = await axios.get(

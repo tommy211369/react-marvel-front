@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Cookies from "js-cookie";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Characters from "./containers/Characters";
@@ -9,7 +9,6 @@ import Favorites from "./containers/Favorites";
 import LogIn from "./containers/LogIn";
 import SignUp from "./containers/SignUp";
 import Header from "./components/Header";
-import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 library.add(faHeart);
@@ -20,7 +19,6 @@ function App() {
   const [userFavorites, setUserFavorites] = useState(
     Cookies.get("userFavorites") || null
   );
-  const [appLoading, setAppLoading] = useState(true);
   const [characters, setCharacters] = useState("");
 
   // store token as cookie
@@ -34,32 +32,6 @@ function App() {
     setUserName(user);
     Cookies.set("userName", user);
   };
-
-  useEffect(() => {
-    const fetchFavorites = async () => {
-      try {
-        if (userToken) {
-          const response = await axios.get(
-            // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
-            // `http://localhost:4000/favorites?token=${userToken}`
-            `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
-          );
-
-          console.log(response.data);
-          setUserFavorites(response.data.userFavorites);
-          Cookies.set("userFavorites", response.data.userFavorites);
-          setAppLoading(false);
-        } else {
-          Cookies.remove("userFavorites");
-          setAppLoading(false);
-        }
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
-    fetchFavorites();
-  }, [userToken, userFavorites]);
 
   // faire une fonction add/remove item (pour Grid, CharacterComics, Favorites)
 
@@ -83,7 +55,12 @@ function App() {
           />
         </Route>
         <Route path="/comics/:id">
-          <CharacterComics userFavorites={userFavorites} />
+          <CharacterComics
+            userToken={userToken}
+            userFavorites={userFavorites}
+            setUserFavorites={setUserFavorites}
+            userName={userName}
+          />
         </Route>
         <Route path="/favorites">
           <Favorites
@@ -110,7 +87,6 @@ function App() {
             characters={characters}
             setCharacters={setCharacters}
             setUserFavorites={setUserFavorites}
-            appLoading={appLoading}
           />
         </Route>
       </Switch>

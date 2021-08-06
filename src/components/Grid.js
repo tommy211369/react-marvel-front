@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import Fade from "react-reveal/Fade";
 import axios from "axios";
@@ -13,17 +14,45 @@ export default function Grid({
   type,
   userToken,
   userFavorites,
-  appLoading,
+  setUserFavorites,
 }) {
-  // item, type
-  return appLoading ? (
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        if (userToken !== null) {
+          const response = await axios.get(
+            // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
+            // `http://localhost:4000/favorites?token=${userToken}`
+            `http://localhost:4000/favorites?token=${userToken}`
+          );
+
+          console.log(response.data);
+          setUserFavorites(response.data.userFavorites);
+          Cookies.set("userFavorites", response.data.userFavorites);
+          setIsLoading(false);
+        } else {
+          Cookies.remove("userFavorites");
+          setUserFavorites(null);
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    fetchFavorites();
+  }, [userToken, userFavorites]);
+
+  return isLoading ? (
     <Spinner />
-  ) : (
+  ) : items ? (
     <div className="grid">
       <Fade top>
         {items.map((item) => {
           let exist = "";
-          if (userToken) {
+          if (userFavorites !== null && userFavorites.length > 0) {
             exist = userFavorites.find((elem) => elem.id === item._id);
           }
           return (
@@ -40,10 +69,10 @@ export default function Grid({
                       itemTitle: item.title ? item.title : item.name,
                       itemPicture: `${item.thumbnail.path}.${item.thumbnail.extension}`,
                     };
-                    //http://localhost:4000/user/favorites
+                    // `http://localhost:4000/user/favorites`
                     // `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`
                     const response = await axios.post(
-                      `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`,
+                      `http://localhost:4000/user/favorites`,
                       itemDatas,
                       {
                         headers: {
@@ -73,5 +102,7 @@ export default function Grid({
         })}
       </Fade>
     </div>
+  ) : (
+    <p style={{ color: "white" }}>Aucun résultat ...</p>
   );
 }
