@@ -680,7 +680,6 @@ form input[type="submit"]:hover {
 
   .character-infos {
     flex-direction: column;
-    background-color: blue;
   }
 
   .character-infos img {
