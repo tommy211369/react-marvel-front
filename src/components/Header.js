@@ -4,8 +4,6 @@ import ironMan from "../assets/img/iron-man.jpeg";
 import deadpool from "../assets/img/deadpool-head.jpeg";
 import { Link, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
-//logo marvel
-// navigation Chracters, Comics, Favorites
 
 export default function Header({
   userName,
