@@ -24,11 +24,14 @@ body {
   }
 
   50% {
-    opacity: 1;
     top: 250px;
     transform: translateX(500px);
   }
-  75% {
+  80% {
+    opacity: 1;
+  }
+
+  85% {
     opacity: 0;
   }
 
