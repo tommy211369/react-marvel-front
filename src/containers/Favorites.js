@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import Spinner from "../components/Spinner";
+import deadPoolLove from "../assets/img/deadpool-love.jpeg";
 
 export default function Favorites({
   userToken,
@@ -59,6 +60,9 @@ export default function Favorites({
   ) : (
     <div className="favorites">
       <h1>Vos favoris</h1>
+      <div className="deadpool-love">
+        <img src={deadPoolLove} alt="deadpool love" />
+      </div>
 
       <div className="container">
         {userToken ? (
