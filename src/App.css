@@ -482,6 +482,11 @@ form input[type="submit"]:hover {
   color: white;
 }
 
+.favorite p {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
 .deadpool-love {
   position: absolute;
   top: -70px;

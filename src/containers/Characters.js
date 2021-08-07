@@ -67,7 +67,7 @@ export default function Characters({
         items={characters}
         characters={characters}
         userName={userName}
-        type="Character"
+        type="Personnage"
         userToken={userToken}
         userFavorites={userFavorites}
         setUserFavorites={setUserFavorites}

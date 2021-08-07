@@ -70,7 +70,7 @@ export default function Favorites({
             userFavorites.map((item) => {
               return (
                 <div key={item.id} className="favorite">
-                  {item.type === "Character" ? (
+                  {item.type === "Personnage" ? (
                     <h2>
                       Nom : <span>{item.title}</span>
                     </h2>
