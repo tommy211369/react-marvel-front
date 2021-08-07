@@ -45,7 +45,7 @@ export default function Grid({
     };
 
     fetchFavorites();
-  }, [userToken, userFavorites]);
+  }, [userToken, userFavorites, setUserFavorites]);
 
   return isLoading ? (
     <Spinner />
@@ -57,8 +57,8 @@ export default function Grid({
           exist = userFavorites.find((elem) => elem.id === item._id);
         }
         return (
-          <Fade top>
-            <div key={item._id} className="item">
+          <Fade top key={item._id}>
+            <div className="item">
               <FontAwesomeIcon
                 icon="heart"
                 className={exist ? "heart-red" : "heart"}

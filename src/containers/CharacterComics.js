@@ -3,7 +3,7 @@ import axios from "axios";
 import Spinner from "../components/Spinner";
 import { useParams } from "react-router-dom";
 
-export default function CharacterComics({}) {
+export default function CharacterComics() {
   const { id } = useParams();
   const [characterInfos, setCharacterInfos] = useState("");
   const [isLoading, setIsLoading] = useState(true);

@@ -13,7 +13,6 @@ export default function Comics({
 }) {
   const [comicsList, setComicsList] = useState("");
   const [comicsInput, setComicsInput] = useState("");
-  const [comicsTotal, setComicsTotal] = useState("");
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -28,7 +27,6 @@ export default function Comics({
         );
         // console.log("ComicsList : ", response.data);
 
-        setComicsTotal(response.data.count);
         setComicsList(response.data.comics);
         setIsLoading(false);
       } catch (error) {
