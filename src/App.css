@@ -489,6 +489,18 @@ form input {
   font-size: 13px;
   font-family: "CaptainMarvel";
   margin-bottom: 10px;
+  border: 1px solid white;
+}
+
+.login-error {
+  border: none;
+  padding: 10px 20px;
+  outline: none;
+  color: red;
+  border: 1px solid red;
+  font-size: 13px;
+  font-family: "CaptainMarvel";
+  margin-bottom: 10px;
 }
 
 form input[type="submit"] {
