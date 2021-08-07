@@ -122,6 +122,25 @@ body {
   background-color: black;
 }
 
+/* scroll up */
+.scrollUp {
+  position: "fixed";
+  bottom: 50;
+  right: 30;
+  cursor: "pointer";
+  transition-duration: "0.2s";
+  transition-timing-function: "linear";
+  transition-delay: "0s";
+  z-index: 1000;
+}
+
+.scrollUp:hover {
+  background-color: white;
+  font-weight: bold;
+  transform: scale(1.2);
+  transition: all 400ms ease;
+}
+
 /* HEADER */
 .header {
   background-color: black;

@@ -9,6 +9,7 @@ import Favorites from "./containers/Favorites";
 import LogIn from "./containers/LogIn";
 import SignUp from "./containers/SignUp";
 import Header from "./components/Header";
+import ScrollToTop from "./components/ScrollToTop";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 library.add(faHeart);
@@ -83,6 +84,7 @@ function App() {
           />
         </Route>
       </Switch>
+      <ScrollToTop />
     </Router>
   );
 }
