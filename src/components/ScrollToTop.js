@@ -5,7 +5,7 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 export default function Scroll() {
   return (
     <div>
-      <ScrollToTop>
+      <ScrollToTop showUnder={120} duration={400}>
         <ArrowUpwardIcon
           style={{
             color: "red",
