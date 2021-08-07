@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-
 export default function SignUp({ setUser, setDataUserName }) {
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [errorPassword, setErrorPassword] = useState(false);
@@ -67,13 +66,12 @@ export default function SignUp({ setUser, setDataUserName }) {
           <input
             type="text"
             placeholder="Nom d'utilisateur"
-            onChange={(e) => {
-              setUsername(e.target.value);
+            handleChange={(e) => {
+              setUsername(e.target.Value);
             }}
-            required
           />
+
           <input
-            type="email"
             placeholder="Adresse mail"
             onChange={(e) => {
               setEmail(e.target.value);

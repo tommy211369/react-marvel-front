@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Cookies from "js-cookie";
-
 import Fade from "react-reveal/Fade";
 import axios from "axios";
 import Spinner from "../components/Spinner";
@@ -9,8 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Grid({
   items,
-  characters,
   userName,
+  characters,
   type,
   userToken,
   userFavorites,
@@ -75,7 +74,7 @@ export default function Grid({
                       };
                       // `http://localhost:4000/user/favorites`
                       // `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`
-                      const response = await axios.post(
+                      await axios.post(
                         `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`,
                         itemDatas,
                         {

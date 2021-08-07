@@ -36,11 +36,10 @@ function App() {
   return (
     <Router>
       <Header
-        userToken={userToken}
         userName={userName}
-        setUserToken={setUserToken}
         setUserName={setUserName}
-        userFavorites={userFavorites}
+        userToken={userToken}
+        setUserToken={setUserToken}
         setUserFavorites={setUserFavorites}
       />
       <Switch>
@@ -53,19 +52,13 @@ function App() {
           />
         </Route>
         <Route path="/comics/:id">
-          <CharacterComics
-            userToken={userToken}
-            userFavorites={userFavorites}
-            setUserFavorites={setUserFavorites}
-            userName={userName}
-          />
+          <CharacterComics />
         </Route>
         <Route path="/favorites">
           <Favorites
-            userName={userName}
+            userToken={userToken}
             userFavorites={userFavorites}
             setUserFavorites={setUserFavorites}
-            userToken={userToken}
           />
         </Route>
         <Route path="/login">

@@ -55,14 +55,7 @@ export default function Comics({
       />
 
       {comicsList.length > 0 && (
-        <Pagination
-          skip={skip}
-          setSkip={setSkip}
-          page={page}
-          setPage={setPage}
-          comicsTotal={comicsTotal}
-          comicsList={comicsList}
-        />
+        <Pagination setSkip={setSkip} page={page} setPage={setPage} />
       )}
 
       <Grid
@@ -75,14 +68,7 @@ export default function Comics({
       />
 
       {comicsList.length > 0 && (
-        <Pagination
-          skip={skip}
-          setSkip={setSkip}
-          page={page}
-          setPage={setPage}
-          comicsTotal={comicsTotal}
-          comicsList={comicsList}
-        />
+        <Pagination setSkip={setSkip} page={page} setPage={setPage} />
       )}
     </div>
   );

@@ -7,9 +7,9 @@ import Cookies from "js-cookie";
 
 export default function Header({
   userName,
-  setUserToken,
   setUserName,
   userToken,
+  setUserToken,
   setUserFavorites,
 }) {
   const history = useHistory();

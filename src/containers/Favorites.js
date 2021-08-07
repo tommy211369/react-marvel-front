@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import Autocomplete from "react-autocomplete";
 
 import Spinner from "../components/Spinner";
 
 export default function Favorites({
-  userFavorites,
   userToken,
+  userFavorites,
   setUserFavorites,
-  userName,
 }) {
   const [isLoading, setIsLoading] = useState(true);
 

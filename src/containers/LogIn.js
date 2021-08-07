@@ -66,6 +66,7 @@ export default function LogIn({ setUser, setDataUserName }) {
             }}
             required
           />
+
           <input
             type="password"
             placeholder="Mot de passe"
@@ -75,6 +76,7 @@ export default function LogIn({ setUser, setDataUserName }) {
             }}
             required
           />
+
           <input type="submit" value="Valider" />
         </form>
       </div>
