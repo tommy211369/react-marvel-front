@@ -10,8 +10,9 @@ body {
   height: auto;
   object-fit: cover;
   position: absolute;
-  z-index: -1;
+  z-index: 1000;
   top: -300px;
+  opacity: 0;
   left: 100px;
   animation: spidey 1.5s ease;
 }
@@ -21,9 +22,14 @@ body {
     top: -300px;
     left: -300px;
   }
+
   50% {
+    opacity: 1;
     top: 250px;
     transform: translateX(500px);
+  }
+  75% {
+    opacity: 0;
   }
 
   to {
@@ -618,8 +624,12 @@ form input[type="submit"]:hover {
       left: -500px;
     }
     50% {
+      opacity: 1;
       top: 300px;
       transform: translateX(200px);
+    }
+    75% {
+      opacity: 0;
     }
 
     to {
@@ -720,8 +730,13 @@ form input[type="submit"]:hover {
       left: -500px;
     }
     50% {
+      opacity: 1;
       top: 300px;
       transform: translateX(100px);
+    }
+
+    75% {
+      opacity: 0;
     }
 
     to {
@@ -767,8 +782,13 @@ form input[type="submit"]:hover {
       left: -500px;
     }
     50% {
+      opacity: 1;
       top: 300px;
       transform: translateX(50px);
+    }
+
+    75% {
+      opacity: 0;
     }
 
     to {

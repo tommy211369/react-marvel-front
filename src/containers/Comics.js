@@ -3,7 +3,7 @@ import Grid from "../components/Grid";
 import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
 import Pagination from "../components/Pagination";
-import spidey from "../assets/img/spider-man.jpeg";
+import spidey from "../assets/img/spider-man.png";
 
 import axios from "axios";
 

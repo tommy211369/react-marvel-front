@@ -4,7 +4,8 @@ import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 import Pagination from "../components/Pagination";
-import spidey from "../assets/img/spider-man.jpeg";
+import spidey from "../assets/img/spider-man.png";
+
 export default function Characters({
   userName,
   userToken,
