@@ -19,9 +19,10 @@ export default function CharacterComics({}) {
 
         setCharacterInfos(response.data);
         setIsLoading(false);
-        console.log(response.data);
+        // console.log(response.data);
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
+        alert(error.message);
       }
     };
     fetchCharacterComics();

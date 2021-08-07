@@ -26,15 +26,14 @@ export default function Comics({
         const response = await axios.get(
           `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}&skip=${skip}`
         );
-        console.log("ComicsList : ", response.data);
+        // console.log("ComicsList : ", response.data);
 
         setComicsTotal(response.data.count);
-
         setComicsList(response.data.comics);
-
         setIsLoading(false);
       } catch (error) {
-        console.log(error.message);
+        alert(error.message);
+        // console.log(error.message);
       }
     };
 

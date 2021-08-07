@@ -26,14 +26,13 @@ export default function Characters({
           `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         );
 
-        console.log(response.data);
+        // console.log(response.data);
         setCharactersTotal(response.data.count);
-
         setCharacters(response.data.characters);
-
         setIsLoading(false);
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
+        alert(error.message);
       }
     };
 

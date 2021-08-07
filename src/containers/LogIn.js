@@ -21,16 +21,16 @@ export default function LogIn({ setUser, setDataUserName }) {
       // "http://localhost:4000/login"
       // "https://reacteur-marvel-by-tommy.herokuapp.com/login"
       const response = await axios.post(
-        "http://localhost:4000/login",
+        "https://reacteur-marvel-by-tommy.herokuapp.com/login",
         userData
       );
 
-      console.log(response.data);
+      // console.log(response.data);
       setDataUserName(response.data.resUser.username);
       setUser(response.data.resUser.token);
       history.push("/");
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       setErrorLogin(true);
     }
   };
@@ -58,8 +58,8 @@ export default function LogIn({ setUser, setDataUserName }) {
 
         <form onSubmit={handleSubmit}>
           <input
-            type="text"
-            className={errorLogin && "login-error"}
+            type="email"
+            className={errorLogin && "form-error"}
             placeholder="Adresse mail"
             onChange={(e) => {
               setEmail(e.target.value);
@@ -69,7 +69,7 @@ export default function LogIn({ setUser, setDataUserName }) {
           <input
             type="password"
             placeholder="Mot de passe"
-            className={errorLogin && "login-error"}
+            className={errorLogin && "form-error"}
             onChange={(e) => {
               setPassword(e.target.value);
             }}

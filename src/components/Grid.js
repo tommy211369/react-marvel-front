@@ -30,7 +30,7 @@ export default function Grid({
             `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
           );
 
-          console.log(response.data);
+          // console.log(response.data);
           setUserFavorites(response.data.userFavorites);
           Cookies.set("userFavorites", response.data.userFavorites);
           setIsLoading(false);
@@ -40,7 +40,8 @@ export default function Grid({
           setIsLoading(false);
         }
       } catch (error) {
-        console.log(error.message);
+        // console.log(error.message);
+        alert(error.message);
       }
     };
 
@@ -84,12 +85,13 @@ export default function Grid({
                         }
                       );
 
-                      console.log(response.data);
+                      // console.log(response.data);
                     } else {
                       history.push("/login");
                     }
                   } catch (error) {
-                    console.log("Message d'erreur Front : ", error.message);
+                    // console.log("Message d'erreur Front : ", error.message);
+                    alert(error.message);
                   }
                 }}
               />

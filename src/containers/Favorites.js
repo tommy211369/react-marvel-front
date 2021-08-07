@@ -9,6 +9,7 @@ export default function Favorites({
   userFavorites,
   userToken,
   setUserFavorites,
+  userName,
 }) {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -37,7 +38,7 @@ export default function Favorites({
     };
 
     fetchFavorites();
-  }, [userToken, userFavorites]);
+  }, [userToken, userFavorites, setUserFavorites]);
 
   const handleRemoveItem = async (user, id) => {
     try {
@@ -47,10 +48,11 @@ export default function Favorites({
         `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${user}&id=${id}`
       );
 
-      console.log(response.data);
+      // console.log(response.data);
       setUserFavorites(userFavorites);
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
+      alert(error.message);
     }
   };
 

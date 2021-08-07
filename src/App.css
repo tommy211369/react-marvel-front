@@ -492,7 +492,8 @@ form input {
   border: 1px solid white;
 }
 
-.login-error {
+.form-error,
+.pass-error {
   border: none;
   padding: 10px 20px;
   outline: none;
