@@ -32,8 +32,8 @@ export default function Characters({
         setCharacters(response.data.characters);
         setIsLoading(false);
       } catch (error) {
-        // console.log(error.message);
-        alert(error.message);
+        console.log(error.message);
+        // alert(error.message);
       }
     };
 

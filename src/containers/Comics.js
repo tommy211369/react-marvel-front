@@ -32,8 +32,8 @@ export default function Comics({
         setComicsList(response.data.comics);
         setIsLoading(false);
       } catch (error) {
-        alert(error.message);
-        // console.log(error.message);
+        // alert(error.message);
+        console.log(error.message);
       }
     };
 

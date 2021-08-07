@@ -51,7 +51,7 @@ export default function Favorites({
       // console.log(response.data);
       setUserFavorites(userFavorites);
     } catch (error) {
-      // console.log(error.message);
+      console.log(error.message);
       alert(error.message);
     }
   };
