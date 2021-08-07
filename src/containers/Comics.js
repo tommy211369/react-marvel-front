@@ -13,6 +13,7 @@ export default function Comics({
 }) {
   const [comicsList, setComicsList] = useState("");
   const [comicsInput, setComicsInput] = useState("");
+  const [comicsTotal, setComicsTotal] = useState("");
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +28,7 @@ export default function Comics({
         );
         // console.log("ComicsList : ", response.data);
 
+        setComicsTotal(response.data.count);
         setComicsList(response.data.comics);
         setIsLoading(false);
       } catch (error) {
@@ -53,7 +55,13 @@ export default function Comics({
       />
 
       {comicsList.length > 0 && (
-        <Pagination setSkip={setSkip} page={page} setPage={setPage} />
+        <Pagination
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          comicsTotal={comicsTotal}
+          setComicsTotal={setComicsTotal}
+        />
       )}
 
       <Grid
@@ -66,7 +74,13 @@ export default function Comics({
       />
 
       {comicsList.length > 0 && (
-        <Pagination setSkip={setSkip} page={page} setPage={setPage} />
+        <Pagination
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          comicsTotal={comicsTotal}
+          setComicsTotal={setComicsTotal}
+        />
       )}
     </div>
   );

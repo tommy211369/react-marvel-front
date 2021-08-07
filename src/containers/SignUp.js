@@ -42,7 +42,7 @@ export default function SignUp({ setUser, setDataUserName }) {
   };
 
   return (
-    <div className="login">
+    <div className="form">
       <div className="wrapper">
         <div className="form-header">
           <Link to="/login">Se connecter</Link>

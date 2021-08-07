@@ -1,6 +1,14 @@
 import React from "react";
 
-export default function Pagination({ setSkip, page, setPage }) {
+export default function Pagination({
+  setSkip,
+  page,
+  setPage,
+  comicsTotal,
+  setComicsTotal,
+  characters,
+  charactersTotal,
+}) {
   return (
     <div className="pagination">
       {page > 1 && (

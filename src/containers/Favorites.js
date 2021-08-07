@@ -21,7 +21,7 @@ export default function Favorites({
             `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
           );
 
-          console.log(response.data);
+          // console.log(response.data);
           setUserFavorites(response.data.userFavorites);
           Cookies.set("userFavorites", response.data.userFavorites);
           setIsLoading(false);

@@ -55,7 +55,6 @@ export default function Characters({
 
       {characters.length > 0 && (
         <Pagination
-          skip={skip}
           setSkip={setSkip}
           page={page}
           setPage={setPage}
@@ -76,7 +75,6 @@ export default function Characters({
 
       {characters.length > 0 && (
         <Pagination
-          skip={skip}
           setSkip={setSkip}
           page={page}
           setPage={setPage}

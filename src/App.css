@@ -318,14 +318,14 @@ body {
   color: white;
 }
 
-/* LOGIN */
+/* LOGIN / SIGNUP */
 
-.login {
+.form {
   color: white;
   font-family: "Thor";
 }
 
-.login .wrapper {
+.form .wrapper {
   width: 30%;
   margin: 80px auto;
   box-sizing: border-box;
@@ -377,7 +377,7 @@ body {
   color: black;
 }
 
-.login form {
+.form form {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -530,7 +530,7 @@ form input[type="submit"]:hover {
 /* MEDIA QUERIES */
 
 @media (max-width: 1235px) {
-  .login .wrapper {
+  .form .wrapper {
     width: 40%;
   }
 }
@@ -554,7 +554,7 @@ form input[type="submit"]:hover {
 }
 
 @media (max-width: 940px) {
-  .login .wrapper {
+  .form .wrapper {
     width: 50%;
   }
 
@@ -564,7 +564,7 @@ form input[type="submit"]:hover {
 }
 
 @media (max-width: 930px) {
-  .login .wrapper {
+  .form .wrapper {
     width: 50%;
   }
 }
@@ -589,7 +589,7 @@ form input[type="submit"]:hover {
     font-size: 12px;
   }
 
-  .login .wrapper {
+  .form .wrapper {
     width: 60%;
   }
 
@@ -617,7 +617,7 @@ form input[type="submit"]:hover {
 }
 
 @media (max-width: 625px) {
-  .login .wrapper {
+  .form .wrapper {
     width: 80%;
     font-size: 12px;
   }
