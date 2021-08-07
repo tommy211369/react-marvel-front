@@ -4,6 +4,7 @@ import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 import Pagination from "../components/Pagination";
+import spidey from "../assets/img/spider-man.jpeg";
 export default function Characters({
   userName,
   userToken,
@@ -44,7 +45,10 @@ export default function Characters({
   };
 
   return isLoading ? (
-    <Spinner />
+    <div className="loading">
+      <Spinner />
+      <img src={spidey} alt="spider-man" />
+    </div>
   ) : (
     <div className="container">
       <SearchInput

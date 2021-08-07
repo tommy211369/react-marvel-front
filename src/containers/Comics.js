@@ -3,6 +3,8 @@ import Grid from "../components/Grid";
 import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
 import Pagination from "../components/Pagination";
+import spidey from "../assets/img/spider-man.jpeg";
+
 import axios from "axios";
 
 export default function Comics({
@@ -45,7 +47,10 @@ export default function Comics({
   };
 
   return isLoading ? (
-    <Spinner />
+    <div className="loading">
+      <Spinner />
+      <img src={spidey} alt="spider-man" />
+    </div>
   ) : (
     <div className="container">
       <SearchInput

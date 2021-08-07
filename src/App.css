@@ -5,6 +5,34 @@ body {
   background-color: black;
 }
 
+.loading img {
+  width: 500px;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  top: -300px;
+  left: 100px;
+  animation: spidey 1.5s ease;
+}
+
+@keyframes spidey {
+  from {
+    top: -300px;
+    left: -300px;
+  }
+  50% {
+    top: 250px;
+    transform: translateX(500px);
+  }
+
+  to {
+    top: -500px;
+    transform: translateX(700px);
+    display: none;
+  }
+}
+
 /* scroll up */
 .scrollUp {
   position: "fixed";
@@ -583,6 +611,25 @@ form input[type="submit"]:hover {
   }
 }
 
+@media (max-width: 770px) {
+  @keyframes spidey {
+    from {
+      top: -300px;
+      left: -500px;
+    }
+    50% {
+      top: 300px;
+      transform: translateX(200px);
+    }
+
+    to {
+      top: -500px;
+      transform: translateX(700px);
+      display: none;
+    }
+  }
+}
+
 @media (max-width: 760px) {
   .character-comics .comics {
     width: 60%;
@@ -666,6 +713,23 @@ form input[type="submit"]:hover {
   .item {
     width: 70%;
   }
+
+  @keyframes spidey {
+    from {
+      top: -300px;
+      left: -500px;
+    }
+    50% {
+      top: 300px;
+      transform: translateX(100px);
+    }
+
+    to {
+      top: -500px;
+      transform: translateX(400px);
+      display: none;
+    }
+  }
 }
 
 @media (max-width: 400px) {
@@ -691,6 +755,27 @@ form input[type="submit"]:hover {
 
   .character-infos img {
     width: 100%;
+  }
+
+  .loading img {
+    width: 300px;
+  }
+
+  @keyframes spidey {
+    from {
+      top: -300px;
+      left: -500px;
+    }
+    50% {
+      top: 300px;
+      transform: translateX(50px);
+    }
+
+    to {
+      top: -500px;
+      transform: translateX(200px);
+      display: none;
+    }
   }
 }
 
