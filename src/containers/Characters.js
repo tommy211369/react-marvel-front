@@ -45,12 +45,12 @@ export default function Characters({
   };
 
   return isLoading ? (
-    <div className="loading">
-      <Spinner />
-      <img src={spidey} alt="spider-man" />
-    </div>
+    <Spinner />
   ) : (
     <div className="container">
+      <div className="loading">
+        <img src={spidey} alt="spider-man" />
+      </div>
       <SearchInput
         type="text"
         placeholder="Rechercher un personnage"
