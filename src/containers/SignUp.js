@@ -11,7 +11,7 @@ export default function SignUp({ setUser, setDataUserName }) {
   const [errorPassword, setErrorPassword] = useState(false);
   const [userExist, setUserExist] = useState(false);
   const [emptyUsername, setEmptyUsername] = useState(false);
-  const [errorEmail, setErrorEmail] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
   const history = useHistory();
 
@@ -22,28 +22,31 @@ export default function SignUp({ setUser, setDataUserName }) {
     confirm: confirm,
   };
 
+  const validateEmail = (e) => {
+    if (validator.isEmail(email)) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setErrorPassword(false);
       setUserExist(false);
       setEmptyUsername(false);
-      setErrorEmail(false);
 
-      if (validator.isEmail(email)) {
-        // "http://localhost:4000/signup"
-        // "https://reacteur-marvel-by-tommy.herokuapp.com/signup"
-        const response = await axios.post(
-          "https://reacteur-marvel-by-tommy.herokuapp.com/signup",
-          userData
-        );
+      // "http://localhost:4000/signup"
+      // "https://reacteur-marvel-by-tommy.herokuapp.com/signup"
+      const response = await axios.post(
+        "https://reacteur-marvel-by-tommy.herokuapp.com/signup",
+        userData
+      );
 
-        setDataUserName(response.data.resNewUser.username);
-        setUser(response.data.resNewUser.token);
-        history.push("/");
-      } else {
-        setErrorEmail(true);
-      }
+      setDataUserName(response.data.resNewUser.username);
+      setUser(response.data.resNewUser.token);
+      history.push("/");
     } catch (e) {
       console.log(e.response);
       if (e.response.status === 409) {
@@ -106,19 +109,6 @@ export default function SignUp({ setUser, setDataUserName }) {
           </p>
         )}
 
-        {errorEmail && (
-          <p
-            style={{
-              color: "red",
-              fontFamily: "Arial",
-              textAlign: "center",
-              marginTop: "15px",
-            }}
-          >
-            Entrez une adresse mail valide
-          </p>
-        )}
-
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -128,17 +118,20 @@ export default function SignUp({ setUser, setDataUserName }) {
               console.log("username : ", e.target.value);
               setUsername(e.target.value);
             }}
+            required
           />
 
           <input
             placeholder="Adresse mail"
-            className={(userExist || errorEmail) && "form-error"}
+            className={(userExist || disabled) && "form-error"}
             onChange={(e) => {
               console.log("email : ", e.target.value);
               setEmail(e.target.value);
+              validateEmail(e);
             }}
             required
           />
+
           <input
             type="password"
             placeholder="Mot de passe"
@@ -148,6 +141,7 @@ export default function SignUp({ setUser, setDataUserName }) {
             }}
             required
           />
+
           <input
             type="password"
             placeholder="Confirmer mot de passe"
@@ -157,7 +151,7 @@ export default function SignUp({ setUser, setDataUserName }) {
             }}
             required
           />
-          <input type="submit" value="Valider" />
+          <input type="submit" value="Valider" disabled={disabled} />
         </form>
       </div>
     </div>
