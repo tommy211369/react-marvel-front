@@ -5,7 +5,8 @@ import axios from "axios";
 export default function LogIn({ setUser, setDataUserName }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorLogin, setErrorLogin] = useState(false);
+  const [errorEmail, setErrorEmail] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
 
   const history = useHistory();
 
@@ -17,11 +18,12 @@ export default function LogIn({ setUser, setDataUserName }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      setErrorLogin(false);
+      setErrorEmail(false);
+      setErrorPassword(false);
       // "http://localhost:4000/login"
       // "https://reacteur-marvel-by-tommy.herokuapp.com/login"
       const response = await axios.post(
-        "http://localhost:4000/login",
+        "https://reacteur-marvel-by-tommy.herokuapp.com/login",
         userData
       );
 
@@ -30,8 +32,12 @@ export default function LogIn({ setUser, setDataUserName }) {
       setUser(response.data.resUser.token);
       history.push("/");
     } catch (e) {
-      // console.log(e);
-      setErrorLogin(true);
+      console.log(e.response);
+      if (e.response.status === 401) {
+        setErrorEmail(true);
+      } else if (e.response.status === 400) {
+        setErrorPassword(true);
+      }
     }
   };
 
@@ -43,7 +49,7 @@ export default function LogIn({ setUser, setDataUserName }) {
           <Link to="/signup">S'enregistrer</Link>
         </div>
 
-        {errorLogin && (
+        {errorEmail && (
           <p
             style={{
               color: "red",
@@ -52,14 +58,27 @@ export default function LogIn({ setUser, setDataUserName }) {
               marginTop: "15px",
             }}
           >
-            Email et/ou mot de passe non reconnu(s)
+            Adresse mail non reconnue
+          </p>
+        )}
+
+        {errorPassword && (
+          <p
+            style={{
+              color: "red",
+              fontFamily: "Arial",
+              textAlign: "center",
+              marginTop: "15px",
+            }}
+          >
+            Erreur de mot de passe
           </p>
         )}
 
         <form onSubmit={handleSubmit}>
           <input
             type="email"
-            className={errorLogin && "form-error"}
+            className={errorEmail && "form-error"}
             placeholder="Adresse mail"
             onChange={(e) => {
               setEmail(e.target.value);
@@ -70,7 +89,7 @@ export default function LogIn({ setUser, setDataUserName }) {
           <input
             type="password"
             placeholder="Mot de passe"
-            className={errorLogin && "form-error"}
+            className={errorPassword && "form-error"}
             onChange={(e) => {
               setPassword(e.target.value);
             }}
