@@ -1,6 +1,6 @@
 # About the project
 
-A fullstack project using the Marvel Developers API : user has the possibility to sign up / login, add characters and comics to your favorites.   
+A fullstack project using the Marvel Developers API : user has the possibility to sign up / login, add characters and comics to favorites.   
 Made with React, using React Router for browsing, Axios for requests, icons from FontAwesome and Material-UI.  
 
 Database : MongoDB.  
