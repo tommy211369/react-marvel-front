@@ -28,7 +28,7 @@ export default function Characters({
           `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         );
 
-        // console.log(response.data);
+        console.log(response.data);
         setCharactersTotal(response.data.count);
         setCharacters(response.data.characters);
         setIsLoading(false);
@@ -39,7 +39,7 @@ export default function Characters({
     };
 
     fetchCharacters();
-  }, [characterInput, skip, setCharacters]);
+  }, [characterInput, skip, setCharacters, page]);
 
   const handleCharacter = (e) => {
     setCharacterInput(e.target.value);
@@ -58,15 +58,13 @@ export default function Characters({
         handle={handleCharacter}
       />
 
-      {characters.length > 0 && (
-        <Pagination
-          setSkip={setSkip}
-          page={page}
-          setPage={setPage}
-          characters={characters}
-          charactersTotal={charactersTotal}
-        />
-      )}
+      <Pagination
+        setSkip={setSkip}
+        page={page}
+        setPage={setPage}
+        characters={characters}
+        charactersTotal={charactersTotal}
+      />
 
       <Grid
         items={characters}
@@ -78,15 +76,13 @@ export default function Characters({
         setUserFavorites={setUserFavorites}
       />
 
-      {characters.length > 0 && (
-        <Pagination
-          setSkip={setSkip}
-          page={page}
-          setPage={setPage}
-          characters={characters}
-          charactersTotal={charactersTotal}
-        />
-      )}
+      <Pagination
+        setSkip={setSkip}
+        page={page}
+        setPage={setPage}
+        characters={characters}
+        charactersTotal={charactersTotal}
+      />
     </div>
   );
 }

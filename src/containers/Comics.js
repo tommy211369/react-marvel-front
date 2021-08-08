@@ -26,12 +26,13 @@ export default function Comics({
         // `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}&skip=${skip}`
         // `http://localhost:4000/comics?title=${comicsInput}&skip=${skip}`
         const response = await axios.get(
-          `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}&skip=${skip}`
+          `http://localhost:4000/comics?title=${comicsInput}&skip=${skip}`
         );
         // console.log("ComicsList : ", response.data);
 
         setComicsTotal(response.data.count);
         setComicsList(response.data.comics);
+
         setIsLoading(false);
       } catch (error) {
         // alert(error.message);
@@ -59,15 +60,14 @@ export default function Comics({
         handle={handleComics}
       />
 
-      {comicsList.length > 0 && (
-        <Pagination
-          setSkip={setSkip}
-          page={page}
-          setPage={setPage}
-          comicsTotal={comicsTotal}
-          setComicsTotal={setComicsTotal}
-        />
-      )}
+      <Pagination
+        setSkip={setSkip}
+        page={page}
+        setPage={setPage}
+        comicsList={comicsList}
+        comicsTotal={comicsTotal}
+        setComicsTotal={setComicsTotal}
+      />
 
       <Grid
         items={comicsList}
@@ -78,15 +78,14 @@ export default function Comics({
         setUserFavorites={setUserFavorites}
       />
 
-      {comicsList.length > 0 && (
-        <Pagination
-          setSkip={setSkip}
-          page={page}
-          setPage={setPage}
-          comicsTotal={comicsTotal}
-          setComicsTotal={setComicsTotal}
-        />
-      )}
+      <Pagination
+        setSkip={setSkip}
+        page={page}
+        setPage={setPage}
+        comicsTotal={comicsTotal}
+        setComicsTotal={setComicsTotal}
+        comicsList={comicsList}
+      />
     </div>
   );
 }
