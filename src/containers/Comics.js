@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Grid from "../components/Grid";
 import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
-import Pagination from "../components/Pagination";
+import PaginationComics from "../components/PaginationComics";
 import spidey from "../assets/img/spider-man.png";
 
 import axios from "axios";
@@ -18,6 +18,7 @@ export default function Comics({
   const [comicsTotal, setComicsTotal] = useState("");
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,10 +27,11 @@ export default function Comics({
         // `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}&skip=${skip}`
         // `http://localhost:4000/comics?title=${comicsInput}&skip=${skip}`
         const response = await axios.get(
-          `http://localhost:4000/comics?title=${comicsInput}&skip=${skip}`
+          `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}&skip=${skip}`
         );
         // console.log("ComicsList : ", response.data);
 
+        setLimit(response.data.com.limit);
         setComicsTotal(response.data.count);
         setComicsList(response.data.comics);
 
@@ -60,14 +62,17 @@ export default function Comics({
         handle={handleComics}
       />
 
-      <Pagination
-        setSkip={setSkip}
-        page={page}
-        setPage={setPage}
-        comicsList={comicsList}
-        comicsTotal={comicsTotal}
-        setComicsTotal={setComicsTotal}
-      />
+      {comicsList.length > 0 && (
+        <PaginationComics
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          comicsList={comicsList}
+          comicsTotal={comicsTotal}
+          setComicsTotal={setComicsTotal}
+          limit={limit}
+        />
+      )}
 
       <Grid
         items={comicsList}
@@ -78,14 +83,17 @@ export default function Comics({
         setUserFavorites={setUserFavorites}
       />
 
-      <Pagination
-        setSkip={setSkip}
-        page={page}
-        setPage={setPage}
-        comicsTotal={comicsTotal}
-        setComicsTotal={setComicsTotal}
-        comicsList={comicsList}
-      />
+      {comicsList.length > 0 && (
+        <PaginationComics
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          comicsList={comicsList}
+          comicsTotal={comicsTotal}
+          setComicsTotal={setComicsTotal}
+          limit={limit}
+        />
+      )}
     </div>
   );
 }

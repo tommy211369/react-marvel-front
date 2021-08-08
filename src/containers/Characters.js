@@ -3,7 +3,7 @@ import Grid from "../components/Grid";
 import SearchInput from "../components/SearchInput";
 import Spinner from "../components/Spinner";
 import axios from "axios";
-import Pagination from "../components/Pagination";
+import PaginationCharacters from "../components/PaginationCharacters";
 import spidey from "../assets/img/spider-man.png";
 
 export default function Characters({
@@ -17,6 +17,7 @@ export default function Characters({
   const [charactersTotal, setCharactersTotal] = useState("");
   const [skip, setSkip] = useState(0);
   const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ export default function Characters({
           `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         );
 
-        console.log(response.data);
+        setLimit(response.data.charac.limit);
         setCharactersTotal(response.data.count);
         setCharacters(response.data.characters);
         setIsLoading(false);
@@ -58,13 +59,16 @@ export default function Characters({
         handle={handleCharacter}
       />
 
-      <Pagination
-        setSkip={setSkip}
-        page={page}
-        setPage={setPage}
-        characters={characters}
-        charactersTotal={charactersTotal}
-      />
+      {characters.length > 0 && (
+        <PaginationCharacters
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          characters={characters}
+          charactersTotal={charactersTotal}
+          limit={limit}
+        />
+      )}
 
       <Grid
         items={characters}
@@ -76,13 +80,16 @@ export default function Characters({
         setUserFavorites={setUserFavorites}
       />
 
-      <Pagination
-        setSkip={setSkip}
-        page={page}
-        setPage={setPage}
-        characters={characters}
-        charactersTotal={charactersTotal}
-      />
+      {characters.length > 0 && (
+        <PaginationCharacters
+          setSkip={setSkip}
+          page={page}
+          setPage={setPage}
+          characters={characters}
+          charactersTotal={charactersTotal}
+          limit={limit}
+        />
+      )}
     </div>
   );
 }

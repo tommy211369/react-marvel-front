@@ -558,9 +558,12 @@ form input[type="submit"]:hover {
   margin-bottom: 40px;
 }
 
-.page {
+.select-page {
   color: red;
   margin: 0 20px;
+  border-color: #fb231f;
+  outline: none;
+  background-color: black;
 }
 
 .pagination button {

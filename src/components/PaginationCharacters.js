@@ -1,13 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 
-export default function Pagination({
+export default function PaginationCharacters({
   setSkip,
   page,
   setPage,
-  comicsList,
-  comicsTotal,
   characters,
   charactersTotal,
+  limit,
 }) {
   const pagesCharactersTab = [];
   let updateCharactersPages = charactersTotal / 100;
@@ -29,6 +28,7 @@ export default function Pagination({
       )}
 
       <select
+        className="select-page"
         value={page}
         onChange={(e) => {
           setPage(Number(e.target.value));
@@ -44,7 +44,7 @@ export default function Pagination({
         })}
       </select>
 
-      {page !== 15 && (
+      {limit < charactersTotal || page !== "15" ? (
         <button
           onClick={() => {
             setPage((page += 1));
@@ -53,6 +53,8 @@ export default function Pagination({
         >
           Suivant
         </button>
+      ) : (
+        <Fragment></Fragment>
       )}
     </div>
   );
