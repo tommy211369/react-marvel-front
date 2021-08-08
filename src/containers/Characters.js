@@ -25,7 +25,7 @@ export default function Characters({
         // `http://localhost:4000/characters?name=${characterInput}&skip=${skip}`
         // `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         const response = await axios.get(
-          `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
+          `http://localhost:4000/characters?name=${characterInput}&skip=${skip}`
         );
 
         // console.log(response.data);
