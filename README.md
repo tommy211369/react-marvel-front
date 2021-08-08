@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# About the project
 
-## Available Scripts
+A fullstack project using the Marvel Developers API : user has the possibility to sign up / login, add characters and comics to your favorites.   
+Made with React, using React Router for browsing, Axios for requests, icons from FontAwesome and Material-UI.  
 
-In the project directory, you can run:
+Database : MongoDB.  
+Deploy on Netlify : https://react-marvel-by-tommy.netlify.app/
 
-### `yarn start`
+Back-end : https://github.com/tommy211369/reacteur-marvel-back (deploy on Heroku)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<li>Home Page : </li>
+<img width="1431" alt="Capture d’écran 2021-08-08 à 13 23 15" src="https://user-images.githubusercontent.com/77752681/128630545-daafe234-39a2-45f5-acdd-2f96fcb78b26.png">
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<img width="1431" alt="Capture d’écran 2021-08-08 à 13 21 59" src="https://user-images.githubusercontent.com/77752681/128630339-4ec8e86f-60f6-4458-8db8-6e0744c0b47f.png">
 
-### `yarn test`
+<li>Comics : </li>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img width="1417" alt="Capture d’écran 2021-08-08 à 13 22 17" src="https://user-images.githubusercontent.com/77752681/128630373-977efa59-9044-4ccd-9b6d-83181d0e4df7.png">
 
-### `yarn build`
+<li>Characters : </li>
+<img width="1419" alt="Capture d’écran 2021-08-08 à 13 22 37" src="https://user-images.githubusercontent.com/77752681/128630557-9550bd47-caf0-44df-99bf-53a62b575e2f.png">
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+<li>Log In / Sign Up </li>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1419" alt="Capture d’écran 2021-08-08 à 13 22 53" src="https://user-images.githubusercontent.com/77752681/128630418-c4207fa6-edcc-4ad0-9589-7cf6183ac43e.png">
 
-### `yarn eject`
+<li>Your favorites characters and comics : </li>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<img width="1431" alt="Capture d’écran 2021-08-08 à 13 23 15" src="https://user-images.githubusercontent.com/77752681/128630590-08818257-ff2f-435a-8aa4-4580581d9b92.png">
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
