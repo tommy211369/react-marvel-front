@@ -9,7 +9,6 @@ Deploy on Netlify : https://react-marvel-by-tommy.netlify.app/
 Back-end : https://github.com/tommy211369/reacteur-marvel-back (deploy on Heroku)
 
 <li>Home Page : </li>
-<img width="1431" alt="Capture d’écran 2021-08-08 à 13 23 15" src="https://user-images.githubusercontent.com/77752681/128630545-daafe234-39a2-45f5-acdd-2f96fcb78b26.png">
 
 <img width="1431" alt="Capture d’écran 2021-08-08 à 13 21 59" src="https://user-images.githubusercontent.com/77752681/128630339-4ec8e86f-60f6-4458-8db8-6e0744c0b47f.png">
 
