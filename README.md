@@ -28,6 +28,17 @@ Back-end : https://github.com/tommy211369/reacteur-marvel-back (deploy on Heroku
 
 <img width="1431" alt="Capture d’écran 2021-08-08 à 13 23 15" src="https://user-images.githubusercontent.com/77752681/128630590-08818257-ff2f-435a-8aa4-4580581d9b92.png">
 
+# Install
+
+* `git clone https://github.com/tommy211369/reacteur-marvel-front.git`
+
+* `npm install`
+
+* `npm start` : Runs the app in the development mode.
+
+Open http://localhost:3000 to view it in the browser.  
+The page will reload if you make edits.  
+You will also see any lint errors in the console.
 
 
 
