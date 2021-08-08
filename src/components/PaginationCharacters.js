@@ -44,7 +44,7 @@ export default function PaginationCharacters({
         })}
       </select>
 
-      {limit < charactersTotal || page !== "15" ? (
+      {limit < charactersTotal && (
         <button
           onClick={() => {
             setPage((page += 1));
@@ -53,8 +53,6 @@ export default function PaginationCharacters({
         >
           Suivant
         </button>
-      ) : (
-        <Fragment></Fragment>
       )}
     </div>
   );

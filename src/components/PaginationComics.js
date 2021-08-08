@@ -5,6 +5,7 @@ export default function PaginationComics({
   page,
   setPage,
   comicsTotal,
+  limit,
 }) {
   const pagesComicsTab = [];
   let updateComicsPages = comicsTotal / 100;
@@ -42,7 +43,7 @@ export default function PaginationComics({
         })}
       </select>
 
-      {page !== 15 && (
+      {limit < comicsTotal && (
         <button
           onClick={() => {
             setPage((page += 1));
