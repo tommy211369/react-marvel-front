@@ -20,6 +20,7 @@ function App() {
   const [userFavorites, setUserFavorites] = useState(
     Cookies.get("userFavorites") || null
   );
+  const [userId, setUserId] = useState(Cookies.get("userId") || null);
 
   // store token as cookie
   const setUser = (token) => {
@@ -33,6 +34,12 @@ function App() {
     Cookies.set("userName", user);
   };
 
+  // store userId as cookie
+  const setDataUserId = (userId) => {
+    setUserId(userId);
+    Cookies.set("userId", userId);
+  };
+
   return (
     <Router>
       <Header
@@ -41,6 +48,7 @@ function App() {
         userToken={userToken}
         setUserToken={setUserToken}
         setUserFavorites={setUserFavorites}
+        setUserId={setUserId}
       />
       <Switch>
         <Route exact path="/comics">
@@ -59,13 +67,22 @@ function App() {
             userToken={userToken}
             userFavorites={userFavorites}
             setUserFavorites={setUserFavorites}
+            userId={userId}
           />
         </Route>
         <Route path="/login">
-          <LogIn setUser={setUser} setDataUserName={setDataUserName} />
+          <LogIn
+            setUser={setUser}
+            setDataUserName={setDataUserName}
+            setDataUserId={setDataUserId}
+          />
         </Route>
         <Route path="/signup">
-          <SignUp setUser={setUser} setDataUserName={setDataUserName} />
+          <SignUp
+            setUser={setUser}
+            setDataUserName={setDataUserName}
+            setDataUserId={setDataUserId}
+          />
         </Route>
 
         <Route path="/">

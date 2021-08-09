@@ -11,6 +11,7 @@ export default function Header({
   userToken,
   setUserToken,
   setUserFavorites,
+  setUserId,
 }) {
   const history = useHistory();
   return (
@@ -37,9 +38,11 @@ export default function Header({
               setUserName(null);
               setUserToken(null);
               setUserFavorites(null);
+              setUserId(null);
               Cookies.remove("userToken");
               Cookies.remove("userName");
               Cookies.remove("userFavorites");
+              Cookies.remove("userId");
             }}
           />
         )}

@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import validator from "validator";
 
-export default function SignUp({ setUser, setDataUserName }) {
+export default function SignUp({ setUser, setDataUserName, setDataUserId }) {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,12 +40,14 @@ export default function SignUp({ setUser, setDataUserName }) {
       // "http://localhost:4000/signup"
       // "https://reacteur-marvel-by-tommy.herokuapp.com/signup"
       const response = await axios.post(
-        "https://reacteur-marvel-by-tommy.herokuapp.com/signup",
+        "http://localhost:4000/signup",
         userData
       );
 
       setDataUserName(response.data.resNewUser.username);
       setUser(response.data.resNewUser.token);
+      setDataUserId(response.data.resNewUser.id);
+      console.log(response.data.resNewUser);
       history.push("/");
     } catch (e) {
       console.log(e.response);

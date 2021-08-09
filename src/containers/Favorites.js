@@ -9,6 +9,7 @@ export default function Favorites({
   userToken,
   userFavorites,
   setUserFavorites,
+  userId,
 }) {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -19,7 +20,7 @@ export default function Favorites({
           const response = await axios.get(
             // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
             // `http://localhost:4000/favorites?token=${userToken}`
-            `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
+            `http://localhost:4000/favorites?token=${userToken}`
           );
 
           // console.log(response.data);
@@ -42,16 +43,15 @@ export default function Favorites({
   const handleRemoveItem = async (user, id) => {
     try {
       await axios.delete(
-        // `http://localhost:4000/favorites/delete?user=${user}&id=${id}`
-        // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${user}&id=${id}`
-        `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${user}&id=${id}`
+        // `http://localhost:4000/favorites/delete?user=${userId}&id=${id}`
+        // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${userId}&id=${id}`
+        `http://localhost:4000/favorites/delete?user=${user}&id=${id}`
       );
 
       // console.log(response.data);
       setUserFavorites(userFavorites);
     } catch (error) {
-      console.log(error.message);
-      alert(error.message);
+      console.log(error.response);
     }
   };
 
@@ -82,9 +82,7 @@ export default function Favorites({
                   <p>{item.type}</p>
                   <div>
                     <img src={item.image} alt={item.title} />
-                    <button
-                      onClick={() => handleRemoveItem(item.userName, item.id)}
-                    >
+                    <button onClick={() => handleRemoveItem(userId, item.id)}>
                       Retirer des favoris
                     </button>
                   </div>

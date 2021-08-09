@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
-export default function LogIn({ setUser, setDataUserName }) {
+export default function LogIn({ setUser, setDataUserName, setDataUserId }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorEmail, setErrorEmail] = useState(false);
@@ -23,13 +23,15 @@ export default function LogIn({ setUser, setDataUserName }) {
       // "http://localhost:4000/login"
       // "https://reacteur-marvel-by-tommy.herokuapp.com/login"
       const response = await axios.post(
-        "https://reacteur-marvel-by-tommy.herokuapp.com/login",
+        "http://localhost:4000/login",
         userData
       );
 
-      // console.log(response.data);
+      console.log(response.data);
       setDataUserName(response.data.resUser.username);
       setUser(response.data.resUser.token);
+      setDataUserId(response.data.resUser.id);
+
       history.push("/");
     } catch (e) {
       console.log(e.response);
