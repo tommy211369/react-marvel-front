@@ -69,7 +69,6 @@ export default function Comics({
           setPage={setPage}
           comicsList={comicsList}
           comicsTotal={comicsTotal}
-          setComicsTotal={setComicsTotal}
           limit={limit}
         />
       )}
@@ -90,7 +89,6 @@ export default function Comics({
           setPage={setPage}
           comicsList={comicsList}
           comicsTotal={comicsTotal}
-          setComicsTotal={setComicsTotal}
           limit={limit}
         />
       )}

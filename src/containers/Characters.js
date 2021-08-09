@@ -29,6 +29,7 @@ export default function Characters({
           `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
         );
 
+        console.log(response.data);
         setLimit(response.data.charac.limit);
         setCharactersTotal(response.data.count);
         setCharacters(response.data.characters);

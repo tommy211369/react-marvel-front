@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 export default function PaginationCharacters({
   setSkip,
@@ -44,7 +44,7 @@ export default function PaginationCharacters({
         })}
       </select>
 
-      {limit < charactersTotal && (
+      {limit === characters.length ? (
         <button
           onClick={() => {
             setPage((page += 1));
@@ -53,6 +53,8 @@ export default function PaginationCharacters({
         >
           Suivant
         </button>
+      ) : (
+        <Fragment></Fragment>
       )}
     </div>
   );
