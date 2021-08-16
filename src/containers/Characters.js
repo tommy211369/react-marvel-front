@@ -33,7 +33,8 @@ export default function Characters({
         setLimit(response.data.charac.limit);
         setCharactersTotal(response.data.count);
         setCharacters(response.data.characters);
-        setIsLoading(false);
+
+        setTimeout(() => setIsLoading(false), 1500);
       } catch (error) {
         console.log(error.message);
         // alert(error.message);
@@ -48,12 +49,14 @@ export default function Characters({
   };
 
   return isLoading ? (
-    <Spinner />
-  ) : (
-    <div className="container">
+    <div>
+      <Spinner />
       <div className="loading">
         <img src={spidey} alt="spider-man" />
       </div>
+    </div>
+  ) : (
+    <div className="container">
       <SearchInput
         type="text"
         placeholder="Rechercher un personnage"

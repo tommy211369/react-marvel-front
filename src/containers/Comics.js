@@ -35,7 +35,7 @@ export default function Comics({
         setComicsTotal(response.data.count);
         setComicsList(response.data.comics);
 
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 1500);
       } catch (error) {
         // alert(error.message);
         console.log(error.message);
@@ -50,12 +50,14 @@ export default function Comics({
   };
 
   return isLoading ? (
-    <Spinner />
-  ) : (
-    <div className="container">
+    <div>
+      <Spinner />
       <div className="loading">
         <img src={spidey} alt="spider-man" />
       </div>
+    </div>
+  ) : (
+    <div className="container">
       <SearchInput
         type="text"
         placeholder="Rechercher un comics"
