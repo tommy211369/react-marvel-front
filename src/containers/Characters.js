@@ -24,9 +24,9 @@ export default function Characters({
     const fetchCharacters = async () => {
       try {
         // `http://localhost:4000/characters?name=${characterInput}&skip=${skip}`
-        // `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
+        // `https://marvel-backend.onrender.com/characters?name=${characterInput}&skip=${skip}`
         const response = await axios.get(
-          `https://reacteur-marvel-by-tommy.herokuapp.com/characters?name=${characterInput}&skip=${skip}`
+          `https://marvel-backend.onrender.com/characters?name=${characterInput}&skip=${skip}`
         );
 
         console.log(response.data);

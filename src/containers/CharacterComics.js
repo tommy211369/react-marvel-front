@@ -12,9 +12,9 @@ export default function CharacterComics() {
     const fetchCharacterComics = async () => {
       try {
         // `http://localhost:4000/comics/${id}`
-        // `https://reacteur-marvel-by-tommy.herokuapp.com/comics/${id}`
+        // `https://marvel-backend.onrender.com/comics/${id}`
         const response = await axios.get(
-          `https://reacteur-marvel-by-tommy.herokuapp.com/comics/${id}`
+          `https://marvel-backend.onrender.com/comics/${id}`
         );
 
         setCharacterInfos(response.data);

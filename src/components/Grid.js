@@ -24,9 +24,9 @@ export default function Grid({
       try {
         if (userToken !== null) {
           const response = await axios.get(
-            // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
+            // `https://marvel-backend.onrender.com/favorites?token=${userToken}`
             // `http://localhost:4000/favorites?token=${userToken}`
-            `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
+            `https://marvel-backend.onrender.com/favorites?token=${userToken}`
           );
 
           // console.log(response.data);
@@ -73,9 +73,9 @@ export default function Grid({
                         itemPicture: `${item.thumbnail.path}.${item.thumbnail.extension}`,
                       };
                       // `http://localhost:4000/user/favorites`
-                      // `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`
+                      // `https://marvel-backend.onrender.com/user/favorites`
                       await axios.post(
-                        `https://reacteur-marvel-by-tommy.herokuapp.com/user/favorites`,
+                        `https://marvel-backend.onrender.com/user/favorites`,
                         itemDatas,
                         {
                           headers: {

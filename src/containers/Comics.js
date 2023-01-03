@@ -24,10 +24,10 @@ export default function Comics({
   useEffect(() => {
     const fetchComics = async () => {
       try {
-        // `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}&skip=${skip}`
+        // `https://marvel-backend.onrender.com/comics?title=${comicsInput}&skip=${skip}`
         // `http://localhost:4000/comics?title=${comicsInput}&skip=${skip}`
         const response = await axios.get(
-          `https://reacteur-marvel-by-tommy.herokuapp.com/comics?title=${comicsInput}&skip=${skip}`
+          `https://marvel-backend.onrender.com/comics?title=${comicsInput}&skip=${skip}`
         );
         // console.log("ComicsList : ", response.data);
 

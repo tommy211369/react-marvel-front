@@ -18,9 +18,9 @@ export default function Favorites({
       try {
         if (userToken !== null) {
           const response = await axios.get(
-            // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
+            // `https://marvel-backend.onrender.com/favorites?token=${userToken}`
             // `http://localhost:4000/favorites?token=${userToken}`
-            `https://reacteur-marvel-by-tommy.herokuapp.com/favorites?token=${userToken}`
+            `https://marvel-backend.onrender.com/favorites?token=${userToken}`
           );
 
           // console.log(response.data);
@@ -44,8 +44,8 @@ export default function Favorites({
     try {
       await axios.delete(
         // `http://localhost:4000/favorites/delete?user=${userId}&id=${id}`
-        // `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${userId}&id=${id}`
-        `https://reacteur-marvel-by-tommy.herokuapp.com/favorites/delete?user=${userId}&id=${id}`
+        // `https://marvel-backend.onrender.com/favorites/delete?user=${userId}&id=${id}`
+        `https://marvel-backend.onrender.com/favorites/delete?user=${userId}&id=${id}`
       );
 
       // console.log(response.data);

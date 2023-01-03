@@ -38,9 +38,9 @@ export default function SignUp({ setUser, setDataUserName, setDataUserId }) {
       setEmptyUsername(false);
 
       // "http://localhost:4000/signup"
-      // "https://reacteur-marvel-by-tommy.herokuapp.com/signup"
+      // "https://marvel-backend.onrender.com/signup"
       const response = await axios.post(
-        "https://reacteur-marvel-by-tommy.herokuapp.com/signup",
+        "https://marvel-backend.onrender.com/signup",
         userData
       );
 
