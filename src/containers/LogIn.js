@@ -47,7 +47,7 @@ export default function LogIn({ setUser, setDataUserName, setDataUserId }) {
     <div className="form">
       <div className="wrapper">
         <div className="form-header">
-          <Link className="loginpage">Se connecter</Link>
+          <Link className="loginpage">Connexion</Link>
           <Link to="/signup">S'enregistrer</Link>
         </div>
 
