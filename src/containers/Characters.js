@@ -29,7 +29,7 @@ export default function Characters({
           `https://marvel-backend.onrender.com/characters?name=${characterInput}&skip=${skip}`
         );
 
-        console.log(response.data);
+        // console.log(response.data);
         setLimit(response.data.charac.limit);
         setCharactersTotal(response.data.count);
         setCharacters(response.data.characters);

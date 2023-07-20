@@ -27,7 +27,7 @@ export default function LogIn({ setUser, setDataUserName, setDataUserId }) {
         userData
       );
 
-      console.log(response.data);
+      // console.log(response.data);
       setDataUserName(response.data.resUser.username);
       setUser(response.data.resUser.token);
       setDataUserId(response.data.resUser.id);

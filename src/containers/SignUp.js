@@ -47,10 +47,10 @@ export default function SignUp({ setUser, setDataUserName, setDataUserId }) {
       setDataUserName(response.data.resNewUser.username);
       setUser(response.data.resNewUser.token);
       setDataUserId(response.data.resNewUser.id);
-      console.log(response.data.resNewUser);
+      // console.log(response.data.resNewUser);
       history.push("/");
     } catch (e) {
-      console.log(e.response);
+      // console.log(e.response);
       if (e.response.status === 409) {
         setUserExist(true);
       } else if (e.response.status === 400) {
@@ -117,7 +117,7 @@ export default function SignUp({ setUser, setDataUserName, setDataUserId }) {
             className={emptyUsername && "form-error"}
             placeholder="Nom d'utilisateur"
             onChange={(e) => {
-              console.log("username : ", e.target.value);
+              // console.log("username : ", e.target.value);
               setUsername(e.target.value);
             }}
             required
@@ -127,7 +127,7 @@ export default function SignUp({ setUser, setDataUserName, setDataUserId }) {
             placeholder="Adresse mail"
             className={(userExist || disabled) && "form-error"}
             onChange={(e) => {
-              console.log("email : ", e.target.value);
+              // console.log("email : ", e.target.value);
               setEmail(e.target.value);
               validateEmail(e);
             }}
